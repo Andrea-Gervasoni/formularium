@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Formularium — Il formulario di matematica per il liceo scientifico</title>
+  <meta name="description" content="Formulario interattivo di matematica per il liceo scientifico: formula, esempio svolto, errore frequente, schema visivo e collegamenti per ogni argomento." />
+
+  <link rel="icon" type="image/png" href="assets/logo.png" />
+  <link rel="apple-touch-icon" href="assets/logo.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
+
+  <!-- KaTeX (math rendering) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+  <!-- EmailJS (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <!-- Supabase (optional — real cross-device login; see README) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <!-- JSXGraph (interactive math graphs) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraph.css" crossorigin="anonymous" />
+  <script defer src="https://cdn.jsdelivr.net/npm/jsxgraph@1.10.1/distrib/jsxgraphcore.js" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="field"></div>
+
+  <!-- ====================================================================
+       VIEW 1 — LANDING (centered hero + themes grid)
+       ==================================================================== -->
+  <section id="view-landing" class="view is-active">
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <div class="nav-logo" data-goto="landing">
+          <img class="nav-mark" src="assets/logo.png" alt="" aria-hidden="true" />
+          <span class="nav-word">Formul<b>arium</b></span>
+        </div>
+        <div class="nav-spacer"></div>
+        <!-- language flag switch -->
+        <div class="flag-switch" id="lang-switch" role="button" tabindex="0" aria-label="Switch language">
+          <span class="fs-flag" id="fs-it">🇮🇹</span>
+          <span class="fs-knob" id="fs-knob"></span>
+          <span class="fs-flag" id="fs-en">🇬🇧</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" type="button" data-goto="code" data-i18n="nav_code">Ho un codice</button>
+        <button class="btn btn-primary btn-sm" type="button" data-goto="register" data-i18n="nav_register">Registrati</button>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-inner shell">
+        <div class="hero-eyebrow"><span data-i18n="hero_eyebrow">Formulario di matematica · Liceo Scientifico</span></div>
+        <h1 class="logo-hero"><span class="lh-a">Formul</span><span class="lh-b">arium</span></h1>
+        <p class="hero-sub" data-i18n="hero_sub">Tutte le formule ordinate come strumenti di precisione. Per ogni argomento: la formula, un esempio svolto, l'errore frequente, uno schema visivo e i collegamenti con il resto del programma.</p>
+        <div class="hero-cta">
+          <button class="btn btn-primary btn-lg" type="button" data-goto="register" data-i18n="hero_cta_start">Inizia a studiare</button>
+          <button class="btn btn-ghost btn-lg" type="button" data-goto="code" data-i18n="hero_cta_code">Ho già un codice</button>
+        </div>
+        <div class="hero-stats" id="hero-stats">
+          <div class="hstat"><div class="hstat-n" id="stat-topics">—</div><div class="hstat-l" data-i18n="stat_topics_label">Argomenti</div></div>
+          <div class="hstat"><div class="hstat-n">4</div><div class="hstat-l" data-i18n="stat_themes_label">Temi del programma</div></div>
+          <div class="hstat"><div class="hstat-n">∞</div><div class="hstat-l" data-i18n="stat_examples_label">Esempi svolti</div></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="themes-sec shell">
+      <div class="sec-head">
+        <div class="crumb" data-i18n="themes_crumb">Il programma</div>
+        <h2 data-i18n="themes_h2">Quattro temi del programma</h2>
+      </div>
+      <div class="themes-grid" id="themes-grid"><!-- built by app.js --></div>
+    </section>
+  </section>
+
+  <!-- ====================================================================
+       VIEW 2 — REGISTRATION
+       ==================================================================== -->
+  <section id="view-register" class="view">
+    <div class="auth-wrap">
+      <div class="auth-card glass fade-up">
+        <button class="auth-back" type="button" data-goto="landing" aria-label="Torna alla home">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+          <span data-i18n="back_btn">Indietro</span>
+        </button>
+        <div class="auth-head">
+          <img class="auth-mark" src="assets/logo.png" alt="" aria-hidden="true" />
+          <div class="step" data-i18n="reg_step" data-i18n="reg_step">Registrazione</div>
+          <h1 data-i18n="reg_h1" data-i18n="reg_h1">Crea il tuo accesso</h1>
+          <p data-i18n="reg_desc">Inserisci i tuoi dati: riceverai un codice personale di 6 caratteri per entrare nel formulario.</p>
+        </div>
+
+        <form id="register-form" novalidate>
+          <div class="row-2">
+            <div class="field-group">
+              <label class="label" for="r-nome"><span data-i18n="reg_nome">Nome</span> <span class="req">*</span></label>
+              <input class="input" id="r-nome" type="text" autocomplete="given-name" />
+            </div>
+            <div class="field-group">
+              <label class="label" for="r-cognome"><span data-i18n="reg_cognome">Cognome</span> <span class="req">*</span></label>
+              <input class="input" id="r-cognome" type="text" autocomplete="family-name" />
+            </div>
+          </div>
+          <div class="field-group">
+            <label class="label" for="r-ruolo"><span data-i18n="reg_ruolo">Classe / Ruolo</span> <span class="req">*</span></label>
+            <select class="select" id="r-ruolo">
+              <option value="" disabled selected>Seleziona…</option>
+              <option>Studente 1° liceo</option>
+              <option>Studente 2° liceo</option>
+              <option>Studente 3° liceo</option>
+              <option>Studente 4° liceo</option>
+              <option>Studente 5° liceo</option>
+              <option>Insegnante</option>
+              <option>Altro</option>
+            </select>
+          </div>
+          <div class="field-group">
+            <label class="label" for="r-email">Email <span class="req">*</span></label>
+            <input class="input" id="r-email" type="email" autocomplete="email" placeholder="nome@esempio.it" />
+          </div>
+          <button class="btn btn-primary btn-block btn-lg" type="submit" data-i18n="reg_btn" data-i18n="reg_btn">Genera il mio codice</button>
+          <div id="register-msg" class="notice hidden"></div>
+        </form>
+
+        <div id="code-result" class="hidden">
+          <div class="code-ticket">
+            <div class="lbl" data-i18n="ticket_label">Il tuo codice d'accesso</div>
+            <div class="code" id="generated-code">––––––</div>
+            <div class="ch" data-i18n="ticket_hint">Conservalo: ti servirà per rientrare.</div>
+          </div>
+          <button class="btn btn-primary btn-block btn-lg" id="enter-with-code" type="button" data-i18n="enter_btn" data-i18n="enter_btn">Entra nel formulario →</button>
+        </div>
+
+        <div class="auth-switch"><span data-i18n="reg_switch">Hai già un codice?</span> <button type="button" data-goto="code" data-i18n="reg_switch_btn">Inseriscilo qui</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       VIEW 3 — CODE ENTRY / MASTER LOGIN
+       ==================================================================== -->
+  <section id="view-code" class="view">
+    <div class="auth-wrap">
+      <div class="auth-card glass fade-up">
+        <button class="auth-back" type="button" data-goto="landing" aria-label="Torna alla home">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3L5 8l5 5"/></svg>
+          <span data-i18n="back_btn">Indietro</span>
+        </button>
+        <div class="auth-head">
+          <img class="auth-mark" src="assets/logo.png" alt="" aria-hidden="true" />
+          <div class="step" data-i18n="code_step" data-i18n="code_step">Accesso</div>
+          <h1 data-i18n="code_h1" data-i18n="code_h1">Inserisci il codice</h1>
+          <p data-i18n="code_desc">Sei caratteri, lettere e numeri, ricevuti in fase di registrazione.</p>
+        </div>
+
+        <form id="code-form">
+          <div class="otp" id="otp">
+            <input maxlength="1" inputmode="latin" aria-label="carattere 1" />
+            <input maxlength="1" inputmode="latin" aria-label="carattere 2" />
+            <input maxlength="1" inputmode="latin" aria-label="carattere 3" />
+            <input maxlength="1" inputmode="latin" aria-label="carattere 4" />
+            <input maxlength="1" inputmode="latin" aria-label="carattere 5" />
+            <input maxlength="1" inputmode="latin" aria-label="carattere 6" />
+          </div>
+          <div id="code-msg" class="notice hidden"></div>
+          <button class="btn btn-primary btn-block btn-lg" type="submit" style="margin-top:18px;" data-i18n="code_btn" data-i18n="code_btn">Entra</button>
+        </form>
+
+        <div class="divider" data-i18n="code_or" data-i18n="code_or">OPPURE</div>
+
+        <details class="master" id="master-details">
+          <summary data-i18n="master_summary" data-i18n="master_summary">Accesso docente / amministratore</summary>
+          <form id="master-form" style="margin-top:16px;">
+            <div class="field-group">
+              <label class="label" for="m-user">Username</label>
+              <input class="input" id="m-user" type="text" autocomplete="username" />
+            </div>
+            <div class="field-group">
+              <label class="label" for="m-pass">Password</label>
+              <input class="input" id="m-pass" type="password" autocomplete="current-password" />
+            </div>
+            <div id="master-msg" class="notice hidden"></div>
+            <button class="btn btn-ghost btn-block" type="submit" data-i18n="master_btn" data-i18n="master_btn">Entra come docente</button>
+          </form>
+        </details>
+
+        <div class="auth-switch"><span data-i18n="code_switch">Non hai un codice?</span> <button type="button" data-goto="register" data-i18n="code_switch_btn">Registrati</button></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====================================================================
+       VIEW 4 — THE FORMULARY APP
+       ==================================================================== -->
+  <section id="view-app" class="view">
+    <div class="scrim" id="scrim"></div>
+
+    <nav class="rail" id="rail" aria-label="Indice argomenti">
+      <div class="rail-head">
+        <img class="mark" src="assets/logo.png" alt="" aria-hidden="true" />
+        <div class="wm">Formul<b>arium</b><small data-i18n="rail_subtitle">Liceo Scientifico</small></div>
+      </div>
+
+      <div class="tree" id="tree"><!-- built by app.js --></div>
+
+      <div class="rail-foot">
+        <div class="gauge-wrap">
+          <svg class="gauge" viewBox="0 0 100 60" aria-hidden="true">
+            <path class="track" d="M 10 50 A 40 40 0 0 1 90 50" />
+            <path class="fill" id="gauge-fill" d="M 10 50 A 40 40 0 0 1 90 50" />
+            <line class="needle" id="gauge-needle" x1="50" y1="46" x2="16" y2="46" />
+            <circle class="hub" cx="50" cy="46" r="3.4" />
+          </svg>
+          <div class="gauge-read">
+            <div class="num"><span id="gauge-done">0</span><span class="tot">/<span id="gauge-total">0</span></span></div>
+            <div class="lbl" data-i18n="gauge_label">Completati</div>
+          </div>
+        </div>
+        <button class="logout" id="logout-btn" type="button" data-i18n="logout_btn">↩ Esci dal formulario</button>
+      </div>
+    </nav>
+
+    <main class="main">
+      <div class="topbar">
+        <button class="hamburger" id="hamburger" aria-label="Apri il menu">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><line x1="3" y1="6" x2="17" y2="6" /><line x1="3" y1="10" x2="17" y2="10" /><line x1="3" y1="14" x2="17" y2="14" /></svg>
+        </button>
+        <span class="wm">Formul<b>arium</b></span>
+      </div>
+      <div class="main-inner" id="topic-host"><!-- active topic --></div>
+    </main>
+  </section>
+
+  <!-- review modal -->
+  <div id="review-modal" class="review-modal hidden" role="dialog" aria-modal="true" aria-label="Recensione">
+    <div class="review-card glass">
+      <button class="review-close" id="review-close" aria-label="Chiudi">&times;</button>
+      <div class="review-icon">★</div>
+      <h3 class="review-title" data-i18n-rev="title">Ti stiamo aiutando?</h3>
+      <p class="review-sub" data-i18n-rev="sub">Valuta Formularium dopo aver aperto i tuoi primi argomenti.</p>
+      <div class="stars" id="star-row" role="group" aria-label="Valutazione">
+        <button class="star" data-v="1" aria-label="1 stella">★</button>
+        <button class="star" data-v="2" aria-label="2 stelle">★</button>
+        <button class="star" data-v="3" aria-label="3 stelle">★</button>
+        <button class="star" data-v="4" aria-label="4 stelle">★</button>
+        <button class="star" data-v="5" aria-label="5 stelle">★</button>
+      </div>
+      <div id="review-thanks" class="review-thanks hidden" data-i18n-rev="thanks">Grazie per il tuo feedback! ♥</div>
+    </div>
+  </div>
+
+  <script src="assets/i18n.js"></script>
+  <script src="assets/schemas.js"></script>
+  <script src="assets/plots-data.js"></script>
+  <script src="assets/plots.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

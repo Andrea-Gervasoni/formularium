@@ -1,0 +1,233 @@
+{
+  "_schema": {
+    "_README": "FORMULARIUM CONTENT FILE — edit this in any text editor or directly on GitHub (pencil icon). Each topic has 5 sections. Leave a section as an empty array [] to show a 'da completare' placeholder. Use LaTeX between $...$ (inline) or $$...$$ (centered) — remember to write a DOUBLE backslash \\\\ inside JSON, e.g. $\\\\frac{a}{b}$.",
+    "theme": { "id": "letter", "title": "string", "topics": "array of topic OR groups: array of {title, topics}" },
+    "topic": {
+      "id": "unique-string-no-spaces",
+      "title": "string",
+      "formula": "array of strings (the key formula/procedure)",
+      "esempio": "array of strings (a fully worked example, one step per string)",
+      "errore": "array of strings (the common mistake)",
+      "schema": "a raw <svg>…</svg> string, or empty string for a default diagram",
+      "collegamenti": "array of strings (links to other topics)"
+    }
+  },
+  "themes": [
+    {
+      "id": "A",
+      "title": "Equazioni, disequazioni e funzioni",
+      "topics": [
+        {
+          "id": "a-diseq-2grado",
+          "title": "Disequazioni di 2° grado con il modello della parabola",
+          "formula": [
+            "Una disequazione di 2° grado si scrive $ax^2+bx+c \\gtrless 0$ con $a\\neq 0$.",
+            "Si associa la parabola $y=ax^2+bx+c$ e si studia il **segno** in base al discriminante $\\Delta=b^2-4ac$ e alla concavità (segno di $a$).",
+            "$$\\Delta>0 \\Rightarrow \\text{due zeri } x_1<x_2 \\qquad \\Delta=0 \\Rightarrow \\text{uno zero doppio} \\qquad \\Delta<0 \\Rightarrow \\text{nessuno zero reale}$$"
+          ],
+          "esempio": [
+            "Risolviamo $x^2-5x+6>0$.",
+            "Calcolo il discriminante: $\\Delta = (-5)^2-4\\cdot 1\\cdot 6 = 25-24 = 1>0$, quindi due zeri reali.",
+            "Gli zeri sono $x_{1,2}=\\dfrac{5\\pm\\sqrt{1}}{2}$, cioè $x_1=2$ e $x_2=3$.",
+            "Poiché $a=1>0$ la parabola ha la concavità verso l'alto: è **positiva all'esterno** dell'intervallo degli zeri.",
+            "Soluzione: $x<2 \\;\\lor\\; x>3$."
+          ],
+          "errore": [
+            "L'errore più comune è invertire il verso: con $a>0$ la disequazione $>0$ è soddisfatta **all'esterno** degli zeri (valori esterni), non all'interno.",
+            "Si dimentica inoltre il caso $\\Delta<0$: se $a>0$ allora $ax^2+bx+c>0$ è vera per **ogni** $x\\in\\mathbb{R}$ (la parabola sta tutta sopra l'asse)."
+          ],
+          "schema": "",
+          "collegamenti": [
+            "È il modello visivo alla base dello studio del **segno di una funzione** quadratica.",
+            "Si riusa nelle **disequazioni razionali fratte** per studiare il segno di numeratore e denominatore.",
+            "La stessa parabola compare in Tema C tra le **coniche**."
+          ]
+        },
+        {
+          "id": "a-razionali",
+          "title": "Equazioni e disequazioni razionali intere e fratte (anche grado > 2)",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
+        {
+          "id": "a-valori-assoluti",
+          "title": "Equazioni e disequazioni con valori assoluti",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
+        {
+          "id": "a-irrazionali",
+          "title": "Equazioni e disequazioni irrazionali",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
+        {
+          "id": "a-caratteristiche-funzioni",
+          "title": "Caratteristiche delle funzioni: dominio, codominio, zeri, segno e grafico",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
+        {
+          "id": "a-proprieta-funzioni",
+          "title": "Proprietà delle funzioni: iniettiva, suriettiva, biiettiva",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
+        {
+          "id": "a-tratti",
+          "title": "Funzioni definite a tratti",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
+        {
+          "id": "a-pari-dispari",
+          "title": "Funzioni pari e dispari",
+          "formula": [
+            "Una funzione è **pari** se $f(-x)=f(x)$ per ogni $x$ del dominio: il grafico è **simmetrico rispetto all'asse $y$**.",
+            "È **dispari** se $f(-x)=-f(x)$: il grafico è **simmetrico rispetto all'origine**.",
+            "Condizione preliminare: il dominio deve essere **simmetrico** rispetto a $0$."
+          ],
+          "esempio": [
+            "Studiamo la parità di $f(x)=x^2-\\cos x$.",
+            "Calcolo $f(-x)=(-x)^2-\\cos(-x)=x^2-\\cos x = f(x)$.",
+            "Quindi $f$ è **pari**.",
+            "Per $g(x)=x^3+\\sin x$ ho invece $g(-x)=-x^3-\\sin x=-(x^3+\\sin x)=-g(x)$: $g$ è **dispari**."
+          ],
+          "errore": [
+            "Credere che ogni funzione sia pari oppure dispari: la maggior parte **non** ha alcuna simmetria (es. $f(x)=x^2+x$).",
+            "Dimenticare di controllare che il dominio sia simmetrico: senza questa condizione la parità non è nemmeno definibile."
+          ],
+          "schema": "",
+          "collegamenti": [
+            "La parità è una delle **simmetrie nel piano cartesiano** (Tema B).",
+            "Semplifica lo studio del **grafico**: basta tracciarne metà e riflettere.",
+            "Le funzioni goniometriche $\\cos$ (pari) e $\\sin$ (dispari) del Tema D ne sono l'esempio principe."
+          ]
+        },
+        {
+          "id": "a-composta-inversa",
+          "title": "Funzione composta e funzione inversa",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        }
+      ]
+    },
+    {
+      "id": "B",
+      "title": "Retta e trasformazioni nel piano cartesiano",
+      "topics": [
+        {
+          "id": "b-retta",
+          "title": "Equazione e grafico di una retta; rette parallele e perpendicolari",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
+        {
+          "id": "b-distanza-bisettrici",
+          "title": "Distanza di un punto da una retta e bisettrici",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
+        {
+          "id": "b-fasci",
+          "title": "Fasci di rette",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
+        {
+          "id": "b-trasformazioni",
+          "title": "Simmetrie, traslazioni e dilatazioni nel piano cartesiano",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        }
+      ]
+    },
+    {
+      "id": "C",
+      "title": "Le coniche",
+      "groups": [
+        {
+          "title": "Circonferenza",
+          "topics": [
+            { "id": "c-circ-luogo", "title": "Equazione della circonferenza come luogo geometrico", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+            { "id": "c-circ-retta", "title": "Circonferenza e retta; condizioni di tangenza", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+            { "id": "c-circ-determinare", "title": "Determinare l'equazione di una circonferenza", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+            { "id": "c-circ-fasci", "title": "Posizioni reciproche fra circonferenze e fasci di circonferenze", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] }
+          ]
+        },
+        {
+          "title": "Parabola",
+          "topics": [
+            {
+              "id": "c-par-luogo",
+              "title": "Equazione della parabola come luogo geometrico",
+              "formula": [
+                "La parabola è il **luogo dei punti** equidistanti da un punto fisso, il **fuoco** $F$, e da una retta fissa, la **direttrice** $d$.",
+                "Con asse parallelo all'asse $y$: $$y=ax^2+bx+c$$",
+                "Vertice $V\\!\\left(-\\dfrac{b}{2a},\\,-\\dfrac{\\Delta}{4a}\\right)$, fuoco $F\\!\\left(-\\dfrac{b}{2a},\\,\\dfrac{1-\\Delta}{4a}\\right)$, direttrice $y=-\\dfrac{1+\\Delta}{4a}$."
+              ],
+              "esempio": [
+                "Troviamo la parabola con fuoco $F(0,1)$ e direttrice $y=-1$.",
+                "Un punto $P(x,y)$ del luogo soddisfa $\\overline{PF}=\\text{dist}(P,d)$.",
+                "Elevando al quadrato: $x^2+(y-1)^2=(y+1)^2$.",
+                "Sviluppo: $x^2+y^2-2y+1=y^2+2y+1 \\Rightarrow x^2=4y$.",
+                "Quindi $y=\\dfrac{1}{4}x^2$: vertice nell'origine, concavità verso l'alto."
+              ],
+              "errore": [
+                "Scambiare la distanza punto-fuoco con la distanza punto-direttrice, o sbagliare il segno della direttrice.",
+                "Dimenticare di elevare al quadrato **entrambi** i membri prima di semplificare."
+              ],
+              "schema": "",
+              "collegamenti": [
+                "La parabola è il modello geometrico delle **disequazioni di 2° grado** (Tema A).",
+                "Da qui si passa allo studio di **parabola e retta** e alle condizioni di tangenza."
+              ]
+            },
+            { "id": "c-par-retta", "title": "Parabola e retta; tangenza e formula ricavata dalle derivate", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+            { "id": "c-par-determinare", "title": "Determinare l'equazione di una parabola; fasci di parabole", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+            { "id": "c-par-archimede", "title": "Segmento parabolico e teorema di Archimede", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] }
+          ]
+        },
+        {
+          "title": "Ellisse",
+          "topics": [
+            { "id": "c-ell-luogo", "title": "Equazione dell'ellisse come luogo geometrico", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+            { "id": "c-ell-retta", "title": "Ellisse e retta; formula di sdoppiamento", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+            { "id": "c-ell-traslate", "title": "Ellissi traslate", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] }
+          ]
+        },
+        {
+          "title": "Iperbole",
+          "topics": [
+            { "id": "c-ip-luogo", "title": "Equazione dell'iperbole come luogo geometrico", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+            { "id": "c-ip-retta", "title": "Iperbole e retta; formula di sdoppiamento", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+            { "id": "c-ip-traslata", "title": "Iperbole traslata", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+            { "id": "c-ip-equilatera", "title": "Iperbole equilatera e funzione omografica", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "D",
+      "title": "Introduzione alla trigonometria",
+      "topics": [
+        {
+          "id": "d-misura-angoli",
+          "title": "Misura degli angoli (gradi e radianti)",
+          "formula": [
+            "Il **radiante** è l'angolo al centro che sottende un arco lungo quanto il raggio.",
+            "Conversione: $$\\alpha_{rad}=\\alpha_{gradi}\\cdot\\dfrac{\\pi}{180^\\circ}$$",
+            "Angolo giro $=360^\\circ=2\\pi$; angolo piatto $=180^\\circ=\\pi$; angolo retto $=90^\\circ=\\dfrac{\\pi}{2}$."
+          ],
+          "esempio": [
+            "Convertiamo $135^\\circ$ in radianti.",
+            "$\\alpha_{rad}=135\\cdot\\dfrac{\\pi}{180}=\\dfrac{135\\pi}{180}$.",
+            "Semplifico la frazione $\\dfrac{135}{180}=\\dfrac{3}{4}$.",
+            "Quindi $135^\\circ=\\dfrac{3}{4}\\pi$ rad."
+          ],
+          "errore": [
+            "Mischiare le unità in una stessa espressione: nelle funzioni goniometriche del calcolo si lavora **sempre in radianti**.",
+            "Sbagliare la proporzione invertendo $180$ e $\\pi$."
+          ],
+          "schema": "",
+          "collegamenti": [
+            "I radianti sono il prerequisito per la **definizione di seno, coseno e tangente** sulla circonferenza.",
+            "La **circonferenza** goniometrica richiama l'equazione vista in Tema C."
+          ]
+        },
+        { "id": "d-definizione", "title": "Definizione di seno, coseno e tangente", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+        { "id": "d-relazioni", "title": "Relazioni fondamentali tra le funzioni goniometriche", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] },
+        { "id": "d-angoli-particolari", "title": "Funzioni goniometriche di angoli particolari", "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": [] }
+      ]
+    }
+  ]
+}

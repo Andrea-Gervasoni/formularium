@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link id="gfont-Pacifico" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pacifico:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Dancing-Script" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Architects-Daughter" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Architects+Daughter:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Caveat" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Permanent-Marker" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Permanent+Marker:wght@300;400;500;600;700&amp;display=swap">
+<link id="gfont-Josefin-Sans" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&amp;display=swap">
+</head>
+<!-- ============================================================================
+     FORMULARIUM — Template email del codice d'accesso
+     ----------------------------------------------------------------------------
+     Da incollare in EmailJS:
+       Email Templates → (tuo template) → Content → "Edit Content" → attiva la
+       vista HTML (icona < >) → cancella tutto → incolla SOLO il blocco
+       <div>…</div> qui sotto (quello dentro <body>).
+     Variabili: {{to_name}}, {{passcode}}, {{ruolo}}
+     Note email: niente web font / SVG (bloccati dai client). Il bottone del
+     codice usa un colore pieno di fallback + un gradiente "3D" per i client che
+     lo supportano (Apple Mail, ecc.), così somiglia al bottone del sito.
+     ========================================================================== -->
+<body style="margin:0;padding:0;">
+
+<div style="margin:0;padding:0;background:#f3ece0;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f3ece0;padding:30px 12px;">
+    <tr><td align="center">
+      <table role="presentation" cellpadding="0" cellspacing="0" style="width:480px;max-width:480px;background:#fffdf9;border:1px solid #ece1cf;border-radius:18px;overflow:hidden;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+
+        <!-- barra superiore arancione -->
+        <tr><td style="background-color:#D9772B;background-image:linear-gradient(90deg,#E89A4E,#D9772B 50%,#B85E14);height:6px;line-height:6px;font-size:6px;">&nbsp;</td></tr>
+
+        <!-- header: badge logo + wordmark -->
+        <tr><td style="padding:28px 34px 4px;">
+          <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+            <td style="vertical-align:middle;">
+              <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+                <td style="width: 46px; height: 46px; border-radius: 13px; background-color: #D9772B; background-image: linear-gradient(155deg,#EC9E53,#D9772B 50%,#B25E12); text-align: center; vertical-align: middle; color: #ffffff; font-family: Georgia; font-style: italic; font-size: 30px; font-weight: 700; text-shadow: 0 1px 1px rgba(120,55,10,0.45)">f</td>
+              </tr></table>
+            </td>
+            <td style="vertical-align:middle;padding-left:13px;">
+              <div style="font-size:22px;font-weight:800;letter-spacing:-0.5px;color:#221C14;line-height:1.1;">Formul<span style="color:#D9772B;">arium</span></div>
+              <div style="font-size:12.5px;color:#9a8f7d;margin-top:3px;">Il formulario di matematica · Liceo Scientifico</div>
+            </td>
+          </tr></table>
+        </td></tr>
+
+        <!-- saluto -->
+        <tr><td style="padding:20px 34px 0;">
+          <div style="font-size:16px;color:#3a3024;line-height:1.6;">Ciao <strong>{{to_name}}</strong>,</div>
+          <div style="font-size: 16px; color: #3a3024; line-height: 1.6; margin-top: 6px; font-family: -apple-system">benvenuto in Formularium. Ecco il tuo codice personale di accesso:</div>
+        </td></tr>
+
+        <!-- codice: bottone arancione lucido 3D (come sul sito) -->
+        <tr><td align="center" style="padding:26px 34px 10px;">
+          <table role="presentation" cellpadding="0" cellspacing="0">
+            <tr><td style="border-radius:16px;background-color:#D9772B;background-image:linear-gradient(160deg,#ECA058 0%,#D9772B 46%,#B05C12 100%);border-top:1px solid rgba(255,255,255,0.45);border-bottom:2px solid rgba(150,70,10,0.55);box-shadow:0 10px 22px rgba(176,90,18,0.38);padding:20px 40px;text-align:center;">
+              <div style="font-size:38px;font-weight:800;letter-spacing:10px;color:#ffffff;text-shadow:0 1px 2px rgba(120,55,10,0.5);">{{passcode}}</div>
+            </td></tr>
+          </table>
+        </td></tr>
+
+        <!-- istruzioni -->
+        <tr><td style="padding:12px 34px 0;">
+          <div style="font-size:14px;color:#7c715f;line-height:1.7;">Apri il sito, vai su <strong style="color:#3a3024;">«Ho un codice»</strong> e inseriscilo: avrai accesso a tutte le formule del triennio, con esempi svolti, errori frequenti, schemi interattivi e collegamenti. Conservalo &mdash; vale anche da un altro dispositivo.</div>
+        </td></tr>
+
+        <tr><td style="padding:18px 34px 0;">
+          <div style="display:inline-block;background:#f4ece0;border-radius:999px;padding:6px 15px;font-size:12.5px;color:#7c715f;">Profilo: <strong style="color:#3a3024;">{{ruolo}}</strong></div>
+        </td></tr>
+
+        <!-- divider + footer -->
+        <tr><td style="padding:24px 34px 0;"><div style="border-top:1px solid #ece1cf;line-height:1px;font-size:1px;">&nbsp;</div></td></tr>
+        <tr><td style="padding:14px 34px 30px;">
+          <div style="font-size:12px;color:#a89c88;line-height:1.7;">Se non hai richiesto tu questo codice, ignora pure questa email.<br>Formularium · formulario di matematica per il liceo scientifico</div>
+        </td></tr>
+
+      </table>
+
+      <!-- micro-footer fuori dalla card -->
+      <div style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;font-size:11px;color:#b6aa97;padding:16px 0 0;">Inviata automaticamente — non rispondere a questa email.</div>
+
+    </td></tr>
+  </table>
+</div>
+
+</body>
+</html>
