@@ -1,61 +1,52 @@
 # Formularium
 
-A public, interactive **mathematics formulary** for students of the Italian
-*liceo scientifico*. Each topic is presented as a card with
-five fixed sections — **Formula · Esempio svolto · Errore frequente · Schema
-visivo · Collegamenti** — with maths typeset by [KaTeX](https://katex.org).
+A public, interactive mathematics formulary for students of the Italian *liceo scientifico*. Each topic is a card with five fixed sections — **Formula · Worked Example · Common Mistake · Visual Diagram · Connections** — with mathematics typeset by KaTeX and fully interactive graphs powered by JSXGraph.
 
-> **Why the name?** *Formularium* is the Latin word for a collection of
-> formulas — academic, memorable, and legible in any language. It reads as a
-> scholarly object rather than a web app, which suits a university-portfolio piece.
+> **Why the name?** *Formularium* is the Latin word for a collection of formulas — academic, memorable, and legible in any language. It reads as a scholarly object rather than a web app, which suits a university-portfolio piece.
 
-**Design at a glance**
-- **Palette** — deep **oxblood** field (`#160609`→`#230a0f`) with a single
-  **diplomatic crimson** accent (`oklch(0.63 0.20 25)`) and luminous glass
-  surfaces. Dark, cinematic and premium — one saturated accent keeps the maths
-  the hero.
-- **Atmosphere** — ambient gradient field, a fading top grid, film-grain +
-  vignette overlay, and slow-drifting glossy crimson “fluid” blobs.
-- **Type** — *Space Grotesk* (display) paired with *Manrope* (body) and
-  *JetBrains Mono* for codes. Maths in KaTeX.
-- **Hero** — a centered, full-bleed hero with a giant two-tone gradient wordmark
-  (not a split layout), eyebrow pill, glass CTAs and a stats row.
-- **Signature element** — analogue instrument controls survive: the completion
-  checkbox is a precision **dial** (needle swings, ring closes) and the sidebar
-  progress meter is a glowing **tuning gauge** with a moving needle.
-- **CMS** — **Option A (single `content.json`)**. One file is the simplest thing
-  for a non-developer to maintain: no folders, no per-file naming, fully editable
-  in GitHub's web editor, and it keeps all topics in one searchable place.
-- Files: `index.html`, `assets/styles.css`, `assets/app.js`, `assets/schemas.js`.
+---
+
+## Design at a glance
+
+- **Palette** — warm off-white background with a single **amber/orange** accent (`#D9772B`). One saturated accent keeps the mathematics the hero.
+- **Type** — *Space Grotesk* (display) paired with *Manrope* (body) and *JetBrains Mono* for codes. Mathematics in KaTeX.
+- **Hero** — a centered, full-bleed hero with a giant two-tone gradient wordmark, eyebrow pill, glass CTAs and a stats row.
+- **Signature element** — analogue instrument controls: the completion checkbox is a precision **dial** (needle swings, ring closes) and the sidebar progress meter is a **tuning gauge** with a moving needle.
+- **Interactive graphs** — every topic's "Visual Diagram" section renders a live JSXGraph board with draggable points, parameter sliders and scroll-to-zoom. A live KaTeX formula panel below the graph updates as you interact.
+- **CMS** — **Option A (single `content.json`)**. One file, editable in any text editor or directly in GitHub's web UI — no folders, no per-file naming, fully searchable.
+- **i18n** — IT / EN language switch (flag toggle in the navbar, preference persisted in `localStorage`).
 
 ---
 
 ## 1. Project structure
 
 ```
-index.html            ← the whole site (landing, registration, code entry, app)
-content.json          ← ALL topic content — this is the file the owner edits
+index.html              ← the whole site (landing · registration · code entry · app)
+content.json            ← ALL topic content — the only file the owner needs to edit
 assets/
-  styles.css          ← all styling
-  app.js              ← logic (auth, routing, tree, progress, KaTeX, EmailJS)
-  schemas.js          ← default SVG diagrams (fallback for some topics)
-  plots-data.js       ← interactive-graph specs, one per topic
-  plots.js            ← the interactive-graph engine (uses JSXGraph CDN)
+  styles.css            ← all styling
+  app.js                ← auth, routing, tree, progress, KaTeX, EmailJS, i18n
+  i18n.js               ← IT / EN translation strings
+  schemas.js            ← fallback SVG diagrams for topics without an interactive graph
+  plots-data.js         ← interactive-graph specs, one per topic
+  plots.js              ← interactive-graph engine (wraps JSXGraph)
+  email-template.html   ← HTML email template to paste into EmailJS
+  logo.png              ← app icon (navbar · sidebar · auth cards · favicon)
+supabase-schema.sql     ← SQL to run in Supabase to set up the access-codes table
 README.md
+LICENSE                 ← MIT
 ```
 
-Everything is plain HTML/CSS/JS. No framework, no build step, no npm.
+Everything is plain HTML / CSS / JS. No framework, no build step, no npm.
 
 ---
 
 ## 2. Run it locally
 
-Because the site loads `content.json` with `fetch`, you must serve the folder
-over HTTP (opening `index.html` with a double-click will fail on that one fetch).
-Any static server works:
+The site loads `content.json` via `fetch`, so you must serve it over HTTP — opening `index.html` by double-clicking will fail on that one request. Any static server works:
 
 ```bash
-# Python (already installed on most machines)
+# Python (pre-installed on most machines)
 python3 -m http.server 8000
 # then open http://localhost:8000
 
@@ -67,21 +58,21 @@ npx serve
 
 ## 3. Deploy to GitHub Pages (zero config)
 
-1. Create a repository and push these files to the **root** (not a subfolder).
+1. Create a **public** repository and push all files to the **root** (not a subfolder).
 2. On GitHub: **Settings → Pages → Build and deployment**.
-3. Source: **Deploy from a branch**, Branch: **main**, Folder: **/ (root)**.
-4. Save. Your site appears at `https://<user>.github.io/<repo>/` in a minute.
+3. Source: **Deploy from a branch** · Branch: **main** · Folder: **/ (root)**.
+4. **Save.** Your site appears at `https://<user>.github.io/<repo>/` within a minute.
 
-No other configuration is needed. KaTiX and EmailJS load from their CDNs.
+No other configuration is needed. KaTeX and JSXGraph load from CDN.
 
 ---
 
-## 4. Edit content WITHOUT writing code
+## 4. Edit content without writing code
 
-All content lives in **`content.json`**. You can edit it:
+All content lives in **`content.json`**. Edit it:
+
 - in any text editor, or
-- directly on GitHub — open `content.json`, click the **pencil ✏️**, edit, then
-  **Commit changes**. The live site updates automatically.
+- directly on GitHub — open `content.json`, click the **pencil ✏️**, edit, then **Commit changes**. The live site updates automatically.
 
 A topic looks like this:
 
@@ -89,46 +80,32 @@ A topic looks like this:
 {
   "id": "a-irrazionali",
   "title": "Equazioni e disequazioni irrazionali",
-  "formula":      ["Testo. Puoi scrivere formule come $\\sqrt{x+1}=3$."],
-  "esempio":      ["Primo passo…", "Secondo passo…", "Risultato…"],
-  "errore":       ["L'errore tipico è…"],
+  "formula":      ["Text. Formulas inline: $\\sqrt{x+1}=3$."],
+  "esempio":      ["Step one…", "Step two…", "Result…"],
+  "errore":       ["The common mistake is…"],
   "schema":       "",
-  "collegamenti": ["Si collega a…"]
+  "collegamenti": ["This connects to…"]
 }
 ```
 
-Rules of thumb:
-- Each of the five sections is a **list of strings** (`[...]`). Each string is a
-  paragraph; in *esempio svolto* each string becomes a **numbered step**.
-- Leave a section as `[]` to show a tidy *“da completare”* placeholder.
-- **Maths:** write LaTeX between `$ … $` (inline) or `$$ … $$` (centered).
-  Inside JSON every backslash must be **doubled**: write `$\\frac{a}{b}$`,
-  `$\\sqrt{x}$`, `$\\Delta$`.
-- **Bold:** wrap text in `**double asterisks**`.
-- **schema** (the visual): leave it `""` to use a built-in diagram (where one
-  exists) or the placeholder, or paste your own `"<svg>…</svg>"` string.
-- **Never change a topic's `id`** once students may have marked it complete — the
-  id is the key used to remember their progress.
+**Rules of thumb:**
 
-Three topics are filled in as reference examples:
-*Disequazioni di 2° grado*, *Funzioni pari e dispari*,
-*Equazione della parabola come luogo geometrico*, and *Misura degli angoli*.
-The remaining ~28 are scaffolded and ready to fill.
+- Each of the five sections is a list of strings (`[…]`). Each string is a paragraph; in `esempio` each string becomes a numbered step.
+- Leave a section as `[]` to display a tidy *"to be completed"* placeholder.
+- **Maths:** write LaTeX between `$ … $` (inline) or `$$ … $$` (display). Inside JSON every backslash must be doubled: `$\\frac{a}{b}$`, `$\\sqrt{x}$`, `$\\Delta$`.
+- **Bold:** wrap text in `**double asterisks**`.
+- **`schema` (the visual):** leave it `""` to use the built-in interactive graph (or the static fallback), or paste your own `"<svg>…</svg>"` string.
+- **Never change a topic's `id`** once students may have marked it complete — the `id` is the key used to store their progress in `localStorage`.
+
+Four topics are fully filled in as reference examples: *Disequazioni di 2° grado*, *Funzioni pari e dispari*, *Equazione della parabola come luogo geometrico*, and *Misura degli angoli*. The remaining ~28 are scaffolded and ready to fill.
 
 ---
 
-## 4-bis. Grafici interattivi (Schema visivo)
+## 4-bis. Interactive graphs (Visual Diagram section)
 
-La sezione **Schema visivo** di ogni argomento mostra un **grafico interattivo**
-(libreria *JSXGraph*, caricata da CDN): si possono **trascinare i punti**,
-muovere gli **slider** dei parametri e **zoomare con la rotellina**. Subito sotto
-il grafico, un pannello *liquid-glass* mostra l'**equazione attuale** (in KaTeX)
-che si aggiorna in tempo reale mentre interagisci. Il pulsante *Reimposta vista*
-riporta lo zoom iniziale.
+Every topic's Visual Diagram section renders a live **JSXGraph** board — drag points, move parameter sliders, scroll to zoom. A **live KaTeX panel** beneath the graph shows the current equation and updates in real time. The *Reset view* button restores the initial zoom.
 
-I grafici di tutti gli argomenti sono già pronti in **`assets/plots-data.js`**,
-indicizzati per `id`. Per **cambiarne uno senza toccare quel file**, aggiungi un
-campo `"plot"` all'argomento dentro `content.json` (ha la priorità):
+All graph specs are ready in **`assets/plots-data.js`**, keyed by topic `id`. To override one without touching that file, add a `"plot"` field to the topic in `content.json` (it takes priority):
 
 ```json
 {
@@ -138,139 +115,49 @@ campo `"plot"` all'argomento dentro `content.json` (ha la priorità):
 }
 ```
 
-Il campo `plot` è un piccolo oggetto con una chiave **`kind`** (il tipo di
-grafico) e qualche opzione. I tipi disponibili:
+| `kind` | Used for | Useful options |
+|---|---|---|
+| `function` | Any `y = f(x)` graph | `exprs:[{f:"a*x*x+b*x+c"}]`, `sliders:{a:{min,max,value,step}}`, `vlines`, `hlines`, `ghost`, `hline:true`, `inverse:true`, `mirror:"even"\|"odd"` |
+| `parabola` | Parabola with vertex | `params:{a,b,c}`, `shade:"gt"\|"lt"`, `focusDirectrix:true`, `line:{m,q}`, `chord:[x1,x2]` |
+| `circle` | Circle | `center:[x,y]`, `r`, `showRadius:true`, `line:{m,q}`, `through:[[..],[..],[..]]`, `pencil:"circles"` |
+| `ellipse` | Ellipse | `a`, `b`, `foci:true`, `sumGlider:true`, `center:[x,y]`, `line:{m,q}` |
+| `hyperbola` | Hyperbola | `a`, `b`, `foci:true`, `asymptotes:true`, `center:[x,y]`, `line:{m,q}` |
+| `homographic` | Homographic function `(ax+b)/(cx+d)` | `a`, `b`, `c`, `d` |
+| `line` | Straight line | `drag:true` (2-point), `m`, `q`, `pencil:[x,y]` (pencil), `distancePoint:[x,y]` |
+| `unit-circle` | Trigonometric circle | `show:["sin","cos","tan","arc","pyth"]`, `snap:true` |
 
-| `kind`        | A cosa serve                                  | Opzioni utili |
-|---------------|-----------------------------------------------|---------------|
-| `function`    | grafico di `y=f(x)` qualunque                 | `exprs:[{f:"a*x*x+b*x+c"}]`, `sliders:{a:{min,max,value,step}}`, `vlines`, `hlines`, `ghost`, `hline:true`, `inverse:true`, `mirror:"even"\|"odd"` |
-| `parabola`    | parabola con vertice                          | `params:{a,b,c}`, `shade:"gt"\|"lt"`, `focusDirectrix:true`, `line:{m,q}`, `chord:[x1,x2]` |
-| `circle`      | circonferenza                                 | `center:[x,y]`, `r`, `showRadius:true`, `line:{m,q}`, `through:[[..],[..],[..]]`, `pencil:"circles"` |
-| `ellipse`     | ellisse                                       | `a`, `b`, `foci:true`, `sumGlider:true`, `center:[x,y]`, `line:{m,q}` |
-| `hyperbola`   | iperbole                                      | `a`, `b`, `foci:true`, `asymptotes:true`, `center:[x,y]`, `line:{m,q}` |
-| `homographic` | funzione omografica `(ax+b)/(cx+d)`           | `a`, `b`, `c`, `d` |
-| `line`        | retta                                         | `drag:true` (2 punti), `m`, `q`, `pencil:[x,y]` (fascio), `distancePoint:[x,y]` |
-| `unit-circle` | circonferenza goniometrica                    | `show:["sin","cos","tan","arc","pyth"]`, `snap:true` |
-
-Opzioni comuni a tutti: `box:[xmin, ymax, xmax, ymin]` (riquadro visibile) e
-`note:["testo"]` (didascalia in basso). Nelle espressioni `exprs` puoi usare
-`x`, i parametri degli slider, e le funzioni `sin cos tan sqrt abs exp log pow`
-(es. `"abs(x*x - k)"`). Per **togliere** il grafico a un argomento, metti
-`"plot": null`.
-
-The remaining ~28 are scaffolded and ready to fill.
+Common options for all kinds: `box:[xmin, ymax, xmax, ymin]` (visible window) and `note:["text"]` (caption). In `exprs` expressions you can use `x`, slider parameter names, and the functions `sin cos tan sqrt abs exp log pow`. To **remove** the graph from a topic entirely, set `"plot": null`.
 
 ---
 
-## 5. Login reale con Supabase (consigliato) — opzionale ma gratuito
+## 5. Real login with Supabase (recommended) — free
 
-Senza Supabase, i codici funzionano **solo sul browser in cui sono stati
-generati** (modalità locale, vedi §7). Con Supabase i codici vivono in un vero
-database: validi **su ogni dispositivo**, e tu vedi l'elenco degli iscritti.
-Il piano gratuito basta e avanza (nessuna carta richiesta; il progetto va in
-pausa dopo ~1 settimana di totale inattività, si riattiva con un clic).
+Without Supabase, codes are stored in the **browser's `localStorage`** and are only valid on the device that generated them (local mode). With Supabase, codes live in a real database: valid on every device, and you can see the list of registered users.
 
-1. Crea un account su <https://supabase.com> e un nuovo **progetto** (scegli una
-   password per il database e una region vicina, es. *Frankfurt*).
-2. Apri **SQL Editor → New query**, incolla tutto il contenuto del file
-   **`supabase-schema.sql`** (in questa cartella) e premi **Run**. Crea la
-   tabella `access_codes` e le due funzioni usate dal sito.
-3. Vai in **Project Settings → API** e copia due valori:
-   - **Project URL** (es. `https://abcd1234.supabase.co`)
-   - **Project API key → `anon` `public`** (la chiave pubblica — *mai* la
-     `service_role`).
-4. Apri `assets/app.js` e compila il blocco `CONFIG.SUPABASE` in alto:
-
-```js
-SUPABASE: {
-  URL:      'https://abcd1234.supabase.co',
-  ANON_KEY: 'eyJhbGciOi...'        // la chiave "anon public"
-}
-```
-
-Fatto. Da ora la registrazione genera codici nel database e l'accesso li
-verifica lì. Per **vedere gli iscritti**: Dashboard → **Table Editor →
-`access_codes`** (visibile solo a te, loggato nella dashboard).
-
-> **Perché la chiave `anon` può stare nel codice pubblico?** Perché la tabella
-> ha *Row Level Security* attiva **senza policy**: la chiave pubblica non può
-> leggere né scrivere la tabella direttamente. Può solo eseguire le due
-> funzioni `fh_register` / `fh_check_code`, che non restituiscono mai le email
-> degli iscritti. Le email restano private. Non incollare **mai** la chiave
-> `service_role` nel sito.
-
-Lasciando `URL`/`ANON_KEY` vuoti (`''`) il sito resta in modalità locale.
+The free tier is genuinely free — no credit card required. Note: a free project is **paused after ~1 week of complete inactivity**; just reopen it from the dashboard to wake it up.
 
 ---
 
-## 6. Configure email delivery (EmailJS) — optional
+## ⚠️ Security limitations
 
-The access code is **always shown on screen** after registration. If you also
-want it emailed to the student, set up EmailJS (free tier, no backend):
+**Local mode (without Supabase).** This is a static site — there is no server. All "authentication" here is **convenience only, not real security**:
 
-1. Create an account at <https://www.emailjs.com> and add an **Email Service**.
-2. Create an **Email Template** containing the variables
-   `{{to_name}}`, `{{to_email}}`, `{{access_code}}`, `{{ruolo}}`.
-   In the template's “To” field use `{{to_email}}`.
-3. Copy your **Public Key**, **Service ID** and **Template ID**.
-4. Open `assets/app.js` and fill the `CONFIG.EMAILJS` block near the top:
+- Everything (including the master-password hash) ships inside the public JavaScript bundle and can be read by anyone who looks. The `cyrb53` hash only keeps the literal word out of plain sight — it is **obfuscation, not protection**.
+- Generated codes are stored in the visitor's own `localStorage` and are not verified against any database; they do not sync across devices.
 
-```js
-EMAILJS: {
-  PUBLIC_KEY:  'XXXXXXXXXXXX',
-  SERVICE_ID:  'service_xxxxx',
-  TEMPLATE_ID: 'template_xxxxx'
-}
-```
-
-Leave `PUBLIC_KEY` empty (`''`) to disable email entirely — everything else
-still works.
-
----
-
-## 7. Master (teacher / admin) credentials
-
-A master login bypasses the access-code flow. The defaults are:
-
-| Username | Password       |
-|----------|----------------|
-| `docente`| `maturita2026` |
-
-To change them, open the site, open the browser **console**, and run e.g.:
-
-```js
-cyrb53('my-new-username')   // → copy the result
-cyrb53('my-new-password')   // → copy the result
-```
-
-Then paste the two results into `assets/app.js`:
-
-```js
-MASTER_USER_HASH: '…',   // hash of the username
-MASTER_PASS_HASH: '…',   // hash of the password
-```
-
-### ⚠️ Security limitations / modalità (read this)
-
-**Modalità locale (senza Supabase).** È un **sito statico** — niente server, quindi
-ogni "autenticazione" è **comodità, non vera sicurezza**:
-
-- Tutto (incluso l'*hash* della master password) viaggia nel JavaScript pubblico
-  e chiunque può leggerlo. L'hash `cyrb53` tiene solo la parola fuori dal
-  sorgente — è **offuscamento, non protezione**.
-- I codici generati restano nel `localStorage` del singolo browser: **non** sono
-  verificati su un database e non si sincronizzano tra dispositivi.
-
-**Con Supabase (§5).** I codici diventano **reali e cross-device**, salvati in un
-database con le email degli iscritti **non esposte** al pubblico (RLS + funzioni
-`SECURITY DEFINER`). Resta comunque vero che il sito è pensato per materiale di
-studio: **considera pubblici i contenuti del formulario** — la master password
-lato client non è una barriera robusta.
+**With Supabase (§5).** Codes become real and cross-device, stored in a database. User emails are never exposed to the public (RLS + `SECURITY DEFINER` functions). The site is intended for public study material — **treat all formulary content as public**. The client-side master password is not a robust barrier.
 
 ---
 
 ## 8. Accessibility & performance
-- Respects `prefers-reduced-motion` (animations collapse to instant).
-- Works down to a 375 px viewport; sidebar becomes a hamburger menu on mobile.
-- Initial payload (HTML + CSS + JS + content) is well under 500 KB; KaTeX is the
-  only heavy dependency and is CDN-cached.
+
+- Respects `prefers-reduced-motion` (all animations collapse to instant transitions).
+- Works down to a 375 px viewport; the sidebar becomes a hamburger menu on mobile.
+- Initial payload (HTML + CSS + JS + content) is well under 500 KB; KaTeX and JSXGraph are the only heavy dependencies and are CDN-cached.
+- Semantic HTML throughout; ARIA labels on interactive controls.
+
+---
+
+## License
+
+MIT
