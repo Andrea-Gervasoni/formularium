@@ -35,7 +35,12 @@ const CONFIG = {
   // (device-only) mode. Setup: see README §"Login reale con Supabase".
   // The anon key is designed to be public; the data is protected by the SQL
   // policies + functions in supabase-schema.sql — never paste the *service* key.
-  SUPABASE: { URL: 'https://iwwycwyrfubvjbtlkyby.supabase.co', ANON_KEY: 'sb_publishable_ELjDcNqI3guYt7FvoXhoxg_Ie9SiWfR' }
+  SUPABASE: { URL: 'https://iwwycwyrfubvjbtlkyby.supabase.co', ANON_KEY: 'sb_publishable_ELjDcNqI3guYt7FvoXhoxg_Ie9SiWfR' },
+
+  // GOOGLE SHEETS — OPTIONAL. Paste the Web App URL from Apps Script to save
+  // star ratings. Only stores: rating (1-5), language, timestamp. NO personal data.
+  // Setup: see google-reviews-script.js
+  REVIEWS_SHEET_URL: 'https://script.google.com/macros/s/AKfycbzk8jpC_Ca50zYTCPpSgIgeynzyxR4C3--D__y00irOFGhfWgXbDE7_tIOk1xJ8SHK4RA/exec'
 };
 
 const LS = {
@@ -212,15 +217,18 @@ function initRegister() {
     const ticket = $('#code-result .code-ticket');
 
     const cfg = CONFIG.EMAILJS;
-    const emailReady = cfg.PUBLIC_KEY && cfg.SERVICE_ID && cfg.TEMPLATE_ID && window.emailjs;
-    // se l'email è attiva, nascondi il codice SUBITO (niente lampo a schermo);
-    // verrà mostrato solo come ripiego se l'invio fallisce
-    if (ticket) ticket.classList.toggle('hidden', !!emailReady);
+    const emailConfigured = !!(cfg.PUBLIC_KEY && cfg.SERVICE_ID && cfg.TEMPLATE_ID);
+    // nascondi SEMPRE il ticket se l'email è configurata — appare solo come ripiego su errore
+    if (ticket) ticket.classList.toggle('hidden', emailConfigured);
     $('#code-result').classList.remove('hidden');
 
-    if (emailReady) {
+    if (emailConfigured) {
       notice(msg, 'ok', I18N.t('sending_email', data.email));
       try {
+        // aspetta fino a 8s che emailjs CDN sia caricato
+        let tries = 0;
+        while (!window.emailjs && tries++ < 80) await new Promise(r => setTimeout(r, 100));
+        if (!window.emailjs) throw new Error('EmailJS CDN not loaded');
         emailjs.init({ publicKey: cfg.PUBLIC_KEY });
         await emailjs.send(cfg.SERVICE_ID, cfg.TEMPLATE_ID, {
           to_name: data.nome + ' ' + data.cognome, to_email: data.email, email: data.email,
@@ -575,7 +583,11 @@ function showReview() {
     s.addEventListener('mouseleave', () => light(chosen));
     s.addEventListener('click', () => {
       chosen = +s.dataset.v; light(chosen);
-      store.set(LS_REVIEW, { rating: chosen, ts: Date.now() });
+      const reviewData = { rating: chosen, lang: window.I18N ? I18N.lang() : 'it', ts: Date.now() };
+      store.set(LS_REVIEW, reviewData);
+      if (CONFIG.REVIEWS_SHEET_URL) {
+        fetch(CONFIG.REVIEWS_SHEET_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(reviewData) }).catch(() => {});
+      }
       const thanks = document.getElementById('review-thanks');
       if (thanks) thanks.classList.remove('hidden');
       setTimeout(() => modal.classList.add('hidden'), 2200);

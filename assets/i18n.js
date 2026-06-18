@@ -10,7 +10,7 @@ const I18N_STRINGS = {
     nav_code: 'Ho un codice',
     nav_register: 'Registrati',
     /* hero */
-    hero_eyebrow: 'Formulario di matematica · Liceo Scientifico',
+    hero_eyebrow: 'Formulario di matematica',
     hero_sub: 'Tutte le formule ordinate come strumenti di precisione. Per ogni argomento: la formula, un esempio svolto, l\'errore frequente, uno schema visivo e i collegamenti con il resto del programma.',
     hero_cta_start: 'Inizia a studiare',
     hero_cta_code: 'Ho già un codice',
@@ -54,7 +54,6 @@ const I18N_STRINGS = {
     code_switch_btn: 'Registrati',
     back_btn: 'Indietro',
     /* app sidebar */
-    rail_subtitle: 'Liceo Scientifico',
     gauge_label: 'Completati',
     logout_btn: '↩ Esci dal formulario',
     /* topic */
@@ -92,7 +91,7 @@ const I18N_STRINGS = {
     nav_code: 'I have a code',
     nav_register: 'Sign up',
     /* hero */
-    hero_eyebrow: 'Mathematics formulary · Scientific high school',
+    hero_eyebrow: 'Mathematics formulary',
     hero_sub: 'Every formula, organised like precision instruments. For each topic: the formula, a worked example, the common mistake, a visual diagram and links to the rest of the syllabus.',
     hero_cta_start: 'Start studying',
     hero_cta_code: 'I already have a code',
@@ -136,7 +135,6 @@ const I18N_STRINGS = {
     code_switch_btn: 'Sign up',
     back_btn: 'Back',
     /* app sidebar */
-    rail_subtitle: 'Scientific high school',
     gauge_label: 'Completed',
     logout_btn: '↩ Exit the formulary',
     /* topic */

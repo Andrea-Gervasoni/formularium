@@ -1,6 +1,6 @@
 # Formularium
 
-A public, interactive mathematics formulary for students of the Italian *liceo*. Each topic is a card with five fixed sections — **Formula · Worked Example · Common Mistake · Visual Diagram · Connections** — with mathematics typeset by KaTeX and fully interactive graphs powered by JSXGraph.
+A public, interactive mathematics formulary for students of the Italian *liceo scientifico*. Each topic is a card with five fixed sections — **Formula · Worked Example · Common Mistake · Visual Diagram · Connections** — with mathematics typeset by KaTeX and fully interactive graphs powered by JSXGraph.
 
 > **Why the name?** *Formularium* is the Latin word for a collection of formulas — academic, memorable, and legible in any language. It reads as a scholarly object rather than a web app, which suits a university-portfolio piece.
 
@@ -136,6 +136,98 @@ Without Supabase, codes are stored in the **browser's `localStorage`** and are o
 
 The free tier is genuinely free — no credit card required. Note: a free project is **paused after ~1 week of complete inactivity**; just reopen it from the dashboard to wake it up.
 
+**Setup (4 steps):**
+
+1. Create an account at <https://supabase.com> and a new **project** (choose a database password and a nearby region, e.g. *Frankfurt*).
+2. Open **SQL Editor → New query**, paste the entire contents of **`supabase-schema.sql`** and click **Run**. This creates the `access_codes` table and the two RPC functions used by the site.
+3. Go to **Project Settings → API** and copy:
+   - **Project URL** (e.g. `https://abcd1234.supabase.co`)
+   - **Project API key → `anon` `public`** — the public key. **Never** use the `service_role` key.
+4. Open `assets/app.js` and fill in `CONFIG.SUPABASE` near the top:
+
+```js
+SUPABASE: {
+  URL:      'https://abcd1234.supabase.co',
+  ANON_KEY: 'eyJhbGciOi...'
+}
+```
+
+Done. Registrations now create codes in the database; logins verify against it. To **view registered users**: Dashboard → **Table Editor → `access_codes`** (visible only to you when logged in to the dashboard).
+
+> **Why is the `anon` key safe to ship in public JS?**
+> The table has Row Level Security enabled **without any policy** — the public key cannot read or write the table directly. It can only call the two functions `fh_register` / `fh_check_code`, which never return email addresses. User emails remain private. Never paste the `service_role` key into the site.
+
+Leaving `URL` / `ANON_KEY` as `''` keeps the site in local mode.
+
+---
+
+## 6. Configure email delivery (EmailJS) — optional
+
+The access code is always **shown on screen** after registration. To also email it to the student, set up EmailJS (free tier, no backend):
+
+1. Create an account at <https://www.emailjs.com> and add an **Email Service** (connect your Gmail or other provider).
+2. Create an **Email Template** with variables `{{to_name}}`, `{{to_email}}`, `{{passcode}}`, `{{ruolo}}`. Set the *To* field to `{{to_email}}`.
+   - A ready-made HTML template is in **`assets/email-template.html`** — paste its `<div>…</div>` body into the EmailJS template editor (switch to HTML view `< >`).
+3. Copy your **Public Key**, **Service ID** and **Template ID**.
+4. Open `assets/app.js` and fill in `CONFIG.EMAILJS`:
+
+```js
+EMAILJS: {
+  PUBLIC_KEY:  'XXXXXXXXXXXX',
+  SERVICE_ID:  'service_xxxxx',
+  TEMPLATE_ID: 'template_xxxxx'
+}
+```
+
+Leave `PUBLIC_KEY` as `''` to disable email entirely — everything else still works.
+
+---
+
+## 6-bis. Star ratings → Google Sheets (optional)
+
+After a student opens 5 topics, a review modal appears (star rating 1–5). To save these ratings to a Google Sheet:
+
+1. Open **Google Drive → New → Google Sheets** — name it *Formularium Reviews*.
+2. In row 1 add four column headers: `Timestamp` · `Stelle` · `Lingua` · `Data`.
+3. In the sheet: **Extensions → Apps Script** — delete the default code, paste the entire **`google-reviews-script.js`** file, and save.
+4. Click **Deploy → New deployment**:
+   - Type: **Web app**
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+   - Click **Deploy** → copy the **Web app URL**.
+5. Open `assets/app.js` and paste the URL into `CONFIG.REVIEWS_SHEET_URL`:
+
+```js
+REVIEWS_SHEET_URL: 'https://script.google.com/macros/s/XXX/exec'
+```
+
+> **Privacy:** only the star rating (1–5), the interface language (it/en) and a timestamp are sent to the sheet. **No name, email, or any personal data is transmitted.**
+> The registration form also shows this note to users.
+
+---
+
+## 7. Master (teacher / admin) credentials
+
+A master login bypasses the access-code flow. Default credentials:
+
+| Username | Password |
+|---|---|
+| `docente` | `maturita2026` |
+
+**To change them**, open the browser console on the live site and run:
+
+```js
+cyrb53('my-new-username')   // copy the result
+cyrb53('my-new-password')   // copy the result
+```
+
+Then paste both results into `assets/app.js`:
+
+```js
+MASTER_USER_HASH: '…',
+MASTER_PASS_HASH: '…',
+```
+
 ---
 
 ## ⚠️ Security limitations
@@ -160,4 +252,4 @@ The free tier is genuinely free — no credit card required. Note: a free projec
 
 ## License
 
-MIT
+MIT — see [`LICENSE`](LICENSE).

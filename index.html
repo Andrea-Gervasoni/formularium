@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Formularium — Il formulario di matematica online</title>
-  <meta name="description" content="Formulario interattivo di matematica per il liceo scientifico: formula, esempio svolto, errore frequente, schema visivo e collegamenti per ogni argomento." />
+  <title>Formularium — Il formulario di matematica</title>
+  <meta name="description" content="Formulario interattivo di matematica: formula, esempio svolto, errore frequente, schema visivo e collegamenti per ogni argomento." />
 
   <link rel="icon" type="image/png" href="assets/logo.png" />
   <link rel="apple-touch-icon" href="assets/logo.png" />
@@ -58,7 +58,7 @@
     <div class="hero">
       <div class="hero-glow"></div>
       <div class="hero-inner shell">
-        <div class="hero-eyebrow"><span data-i18n="hero_eyebrow">Formulario di matematica online</span></div>
+        <div class="hero-eyebrow"><span data-i18n="hero_eyebrow">Formulario di matematica</span></div>
         <h1 class="logo-hero"><span class="lh-a">Formul</span><span class="lh-b">arium</span></h1>
         <p class="hero-sub" data-i18n="hero_sub">Tutte le formule ordinate come strumenti di precisione. Per ogni argomento: la formula, un esempio svolto, l'errore frequente, uno schema visivo e i collegamenti con il resto del programma.</p>
         <div class="hero-cta">
@@ -128,10 +128,11 @@
             <input class="input" id="r-email" type="email" autocomplete="email" placeholder="nome@esempio.it" />
           </div>
           <button class="btn btn-primary btn-block btn-lg" type="submit" data-i18n="reg_btn" data-i18n="reg_btn">Genera il mio codice</button>
+          <p style="font-size:12px;color:var(--ink-4);text-align:center;margin-top:12px;line-height:1.5;">Salviamo solo la tua <strong>classe/ruolo</strong> per capire chi usa Formularium. Nessun dato personale viene condiviso.</p>
           <div id="register-msg" class="notice hidden"></div>
         </form>
 
-        <div id="code-result" class="hidden">
+        <div id="code-result" class="hidden" style="margin-top:8px;">
           <div class="code-ticket">
             <div class="lbl" data-i18n="ticket_label">Il tuo codice d'accesso</div>
             <div class="code" id="generated-code">––––––</div>
@@ -207,7 +208,7 @@
     <nav class="rail" id="rail" aria-label="Indice argomenti">
       <div class="rail-head">
         <img class="mark" src="assets/logo.png" alt="" aria-hidden="true" />
-        <div class="wm">Formul<b>arium</b><small data-i18n="rail_subtitle">Formulario Online</small></div>
+        <div class="wm">Formul<b>arium</b></div>
       </div>
 
       <div class="tree" id="tree"><!-- built by app.js --></div>
@@ -244,7 +245,7 @@
   <div id="review-modal" class="review-modal hidden" role="dialog" aria-modal="true" aria-label="Recensione">
     <div class="review-card glass">
       <button class="review-close" id="review-close" aria-label="Chiudi">&times;</button>
-      <div class="review-icon">★</div>
+      <img src="assets/logo.png" alt="" aria-hidden="true" style="width:56px;height:56px;margin:0 auto 14px;display:block;filter:drop-shadow(0 4px 10px oklch(0.55 0.16 50 / 0.35));" />
       <h3 class="review-title" data-i18n-rev="title">Ti stiamo aiutando?</h3>
       <p class="review-sub" data-i18n-rev="sub">Valuta Formularium dopo aver aperto i tuoi primi argomenti.</p>
       <div class="stars" id="star-row" role="group" aria-label="Valutazione">
