@@ -332,7 +332,8 @@ details.master summary::before { content: '⌥ '; color: var(--accent-deep); }
 #view-app.is-active { display: block; min-height: 100vh; position: relative; z-index: 1; }
 
 .rail {
-  width: var(--rail-w); position: fixed; top: 0; left: 0; height: 100vh;
+  width: var(--rail-w); position: fixed; top: 0; left: 0;
+  height: 100vh; height: 100dvh;
   display: flex; flex-direction: column; z-index: 30;
   background: linear-gradient(180deg, rgba(255,252,247,0.82), rgba(251,246,238,0.86));
   backdrop-filter: blur(20px) saturate(130%); -webkit-backdrop-filter: blur(20px) saturate(130%);
@@ -344,7 +345,7 @@ details.master summary::before { content: '⌥ '; color: var(--accent-deep); }
 .rail-head .wm b { color: var(--accent-deep); font-weight: 600; }
 .rail-head .wm small { display: block; font-family: var(--font); font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-4); margin-top: 4px; font-weight: 600; }
 
-.tree { flex: 1 1 auto; overflow-y: auto; padding: 12px 12px 18px; scrollbar-width: thin; scrollbar-color: var(--glass-line-2) transparent; }
+.tree { flex: 1 1 0; min-height: 0; overflow-y: auto; padding: 12px 12px 18px; scrollbar-width: thin; scrollbar-color: var(--glass-line-2) transparent; }
 .tree::-webkit-scrollbar { width: 8px; }
 .tree::-webkit-scrollbar-thumb { background: var(--glass-line-2); border-radius: 8px; }
 
@@ -377,7 +378,7 @@ details.master summary::before { content: '⌥ '; color: var(--accent-deep); }
 .dial-check.on .face { stroke: var(--ok); fill: oklch(0.62 0.13 150 / 0.14); }
 
 /* gauge at rail foot */
-.rail-foot { border-top: 1px solid var(--glass-line); padding: 18px 18px calc(18px + env(safe-area-inset-bottom, 0px)); background: rgba(255,255,255,0.4); }
+.rail-foot { flex-shrink: 0; border-top: 1px solid var(--glass-line); padding: 18px 18px calc(20px + env(safe-area-inset-bottom, 16px)); background: rgba(255,255,255,0.4); }
 .gauge-wrap { display: flex; align-items: center; gap: 16px; }
 .gauge { width: 88px; height: 58px; flex: 0 0 88px; }
 .gauge .track { fill: none; stroke: var(--glass-line-2); stroke-width: 7; stroke-linecap: round; }
