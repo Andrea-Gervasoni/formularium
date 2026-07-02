@@ -77,14 +77,16 @@ const store = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
 };
 
-// Supabase client (lazy). Returns the client, or false if not configured / not loaded.
+// Supabase client (lazy). Returns the client, or false if not configured.
+// NB: if the CDN script hasn't loaded yet, we return false WITHOUT caching,
+// so a later call can still succeed once the deferred script arrives.
 let _sb = null;
 function sb() {
   if (_sb !== null) return _sb;
   const c = CONFIG.SUPABASE;
-  _sb = (c && c.URL && c.ANON_KEY && window.supabase && window.supabase.createClient)
-    ? window.supabase.createClient(c.URL, c.ANON_KEY)
-    : false;
+  if (!(c && c.URL && c.ANON_KEY)) { _sb = false; return _sb; }
+  if (!(window.supabase && window.supabase.createClient)) return false; // retry later
+  _sb = window.supabase.createClient(c.URL, c.ANON_KEY);
   return _sb;
 }
 
@@ -444,7 +446,7 @@ function openTopic(id) {
   const host = $('#topic-host');
   const sectionsHTML = SECTIONS.map((sec, i) => {
     const num = ['I', 'II', 'III', 'IV', 'V'][i];
-    return `<section class="section glass ${sec.key === 'errore' ? 'is-error' : ''}" style="animation-delay:${i * 0.05}s">
+    return `<section class="section glass is-${sec.key}${sec.key === 'errore' ? ' is-error' : ''}" style="animation-delay:${i * 0.05}s">
       <div class="section-head">
         <span class="section-num">${num}</span>
         <div><span class="section-title">${sec.en}<span class="it">${sec.it}</span></span></div>
@@ -454,6 +456,7 @@ function openTopic(id) {
   }).join('');
 
   host.innerHTML = `
+    <div class="topic-watermark" aria-hidden="true">${entry.themeId}</div>
     <div class="crumb fade-up">
       <span>Tema ${entry.themeId}</span><span class="sep">·</span><span>${entry.themeTitle}</span>
       ${entry.group ? `<span class="sep">·</span><span>${entry.group}</span>` : ''}
@@ -545,6 +548,18 @@ document.addEventListener('visibilitychange', applyMotionGuard);
 async function init() {
   if (window.I18N) I18N.apply();
   applyMotionGuard();
+  // reading progress bar (study panel)
+  const rp = document.getElementById('read-progress');
+  if (rp) {
+    const updRP = () => {
+      const h = document.documentElement;
+      const max = h.scrollHeight - window.innerHeight;
+      rp.style.width = (max > 80 ? (window.scrollY / max) * 100 : 0) + '%';
+    };
+    window.addEventListener('scroll', updRP, { passive: true });
+    window.addEventListener('resize', updRP, { passive: true });
+    updRP();
+  }
   initNav(); initRegister(); initCodeEntry();
   const burger = $('#hamburger'), scrim = $('#scrim');
   if (burger) burger.addEventListener('click', openRail);
