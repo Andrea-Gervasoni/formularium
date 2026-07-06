@@ -56,6 +56,9 @@ const I18N_STRINGS = {
     /* app sidebar */
     gauge_label: 'Completati',
     logout_btn: '↩ Esci dal formulario',
+    byline_by: 'Di',
+    byline_role: 'autore del modello',
+    byline_toast: 'Sito personale in arrivo',
     /* topic */
     mark_done: 'Segna come completato',
     mark_done_ok: 'Completato',
@@ -137,6 +140,9 @@ const I18N_STRINGS = {
     /* app sidebar */
     gauge_label: 'Completed',
     logout_btn: '↩ Exit the formulary',
+    byline_by: 'By',
+    byline_role: 'model author',
+    byline_toast: 'Personal site coming soon',
     /* topic */
     mark_done: 'Mark as completed',
     mark_done_ok: 'Completed',

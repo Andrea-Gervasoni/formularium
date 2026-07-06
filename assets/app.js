@@ -548,6 +548,24 @@ document.addEventListener('visibilitychange', applyMotionGuard);
 async function init() {
   if (window.I18N) I18N.apply();
   applyMotionGuard();
+  // byline: personal site not live yet — show a liquid-glass toast instead
+  let bylineToastTimer = null;
+  $$('.byline').forEach(a => a.addEventListener('click', (e) => {
+    e.preventDefault();
+    let toast = document.getElementById('byline-toast');
+    if (!toast) {
+      toast = document.createElement('div');
+      toast.id = 'byline-toast';
+      toast.className = 'byline-toast';
+      toast.setAttribute('role', 'status');
+      toast.innerHTML = '<img class="byline-toast-photo" src="assets/andrea-gervasoni.png" alt="" onerror="this.style.display=\'none\'"><span class="pip"></span><span class="txt"></span>';
+      document.body.appendChild(toast);
+    }
+    toast.querySelector('.txt').textContent = (window.I18N ? I18N.t('byline_toast') : 'Sito personale in arrivo');
+    requestAnimationFrame(() => toast.classList.add('show'));
+    clearTimeout(bylineToastTimer);
+    bylineToastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
+  }));
   // reading progress bar (study panel)
   const rp = document.getElementById('read-progress');
   if (rp) {
