@@ -9,12 +9,13 @@ A public, interactive mathematics formulary for students of the Italian *liceo s
 ## Design at a glance
 
 - **Palette** — warm off-white background with a single **amber/orange** accent (`#D9772B`). One saturated accent keeps the mathematics the hero.
-- **Type** — *Space Grotesk* (display) paired with *Manrope* (body) and *JetBrains Mono* for codes. Mathematics in KaTeX.
-- **Hero** — a centered, full-bleed hero with a giant two-tone gradient wordmark, eyebrow pill, glass CTAs and a stats row.
-- **Signature element** — analogue instrument controls: the completion checkbox is a precision **dial** (needle swings, ring closes) and the sidebar progress meter is a **tuning gauge** with a moving needle.
+- **Type** — *STIX Two Text* (the serif used in scientific publishing) for headings and the italic wordmark, *Manrope* for body text, *Space Grotesk* for UI accents. Mathematics in KaTeX.
+- **Hero** — a centered, full-bleed hero with an italic-serif wordmark, a decorative annotated parabola (dashed axes, vertex and roots marked) that draws itself on load, glass CTAs, a stats row, and the author byline.
+- **Signature element** — analogue instrument controls: the completion checkbox is a precision **dial** (needle swings, ring closes) and the sidebar progress meter is a **tuning gauge** with a moving needle. Inside the formulary: a reading progress bar, a giant theme-letter watermark on each topic page, and a "theorem box" treatment for the Formula section.
 - **Interactive graphs** — every topic's "Visual Diagram" section renders a live JSXGraph board with draggable points, parameter sliders and scroll-to-zoom. A live KaTeX formula panel below the graph updates as you interact.
 - **CMS** — **Option A (single `content.json`)**. One file, editable in any text editor or directly in GitHub's web UI — no folders, no per-file naming, fully searchable.
 - **i18n** — IT / EN language switch (flag toggle in the navbar, preference persisted in `localStorage`).
+- **Author byline** — newspaper-style signature (photo + name + role) in the hero and, in compact form, in the sidebar footer. Clicking it shows a liquid-glass toast ("Personal site coming soon") until the personal-site URL is set — see §9.
 
 ---
 
@@ -32,6 +33,8 @@ assets/
   plots.js              ← interactive-graph engine (wraps JSXGraph)
   email-template.html   ← HTML email template to paste into EmailJS
   logo.png              ← app icon (navbar · sidebar · auth cards · favicon)
+  andrea-gervasoni.png  ← author photo for the byline (replace with your own)
+google-reviews-script.js ← Apps Script to paste into Google Sheets (star reviews)
 supabase-schema.sql     ← SQL to run in Supabase to set up the access-codes table
 README.md
 LICENSE                 ← MIT
@@ -247,6 +250,16 @@ MASTER_PASS_HASH: '…',
 - Works down to a 375 px viewport; the sidebar becomes a hamburger menu on mobile.
 - Initial payload (HTML + CSS + JS + content) is well under 500 KB; KaTeX and JSXGraph are the only heavy dependencies and are CDN-cached.
 - Semantic HTML throughout; ARIA labels on interactive controls.
+
+---
+
+## 9. Author byline
+
+The hero and the sidebar footer carry an author signature. To personalise it:
+
+1. **Photo** — replace `assets/andrea-gervasoni.png` with your own square portrait (it is shown as a 34 px circle, grayscale until hovered).
+2. **Link** — when your personal site is live, open `index.html`, find the two `<a class="byline" href="#"…>` elements and set `href` to your URL. Then remove the toast handler in `assets/app.js` (the block marked `byline: personal site not live yet`) so the link opens normally.
+3. **Name / role** — edit the text in `index.html` and the `byline_by` / `byline_role` strings in `assets/i18n.js`.
 
 ---
 
