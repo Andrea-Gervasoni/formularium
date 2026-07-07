@@ -1,6 +1,6 @@
 # Formularium
 
-Live site: https://andrea-gervasoni.github.io/Orizzonte-site/
+Live site: https://andrea-gervasoni.github.io/formularium/
 
 A public, interactive mathematics formulary for students of the Italian *liceo scientifico*. Each topic is a card with five fixed sections — **Formula · Worked Example · Common Mistake · Visual Diagram · Connections** — with mathematics typeset by KaTeX and fully interactive graphs powered by JSXGraph.
 
