@@ -1,5 +1,7 @@
 # Formularium
 
+Live site: https://andrea-gervasoni.github.io/Orizzonte-site/
+
 A public, interactive mathematics formulary for students of the Italian *liceo scientifico*. Each topic is a card with five fixed sections — **Formula · Worked Example · Common Mistake · Visual Diagram · Connections** — with mathematics typeset by KaTeX and fully interactive graphs powered by JSXGraph.
 
 > **Why the name?** *Formularium* is the Latin word for a collection of formulas — academic, memorable, and legible in any language. It reads as a scholarly object rather than a web app, which suits a university-portfolio piece.
