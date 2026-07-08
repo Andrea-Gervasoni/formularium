@@ -1,0 +1,22 @@
+name: Supabase keep-alive
+
+# Prevents the free-tier Supabase project from auto-pausing after 7 days
+# of inactivity (Formularium's access-code login depends on it staying up).
+# Pings the REST API on a schedule — no secrets needed, the anon key is
+# already public in assets/app.js (it's designed to be safe to expose;
+# real protection is the SQL policies in supabase-schema.sql).
+
+on:
+  schedule:
+    - cron: "0 6 * * 1,4"   # every Monday & Thursday at 06:00 UTC
+  workflow_dispatch: {}       # lets you trigger it manually from the Actions tab
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Supabase REST API
+        run: |
+          curl -sS -o /dev/null -w "HTTP %{http_code}\n" \
+            "https://iwwycwyrfubvjbtlkyby.supabase.co/rest/v1/" \
+            -H "apikey: sb_publishable_ELjDcNqI3guYt7FvoXhoxg_Ie9SiWfR"
