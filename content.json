@@ -73,10 +73,33 @@
   ]
 },
         {
-          "id": "a-valori-assoluti",
-          "title": "Equazioni e disequazioni con valori assoluti",
-          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
-        },
+  "id": "a-valori-assoluti",
+  "title": "Equazioni e disequazioni con valori assoluti",
+  "formula": [
+    "Un'equazione o disequazione con valore assoluto ha la forma $|f(x)| \\gtrless g(x)$ (o $=$). $f(x)$ è l'espressione **dentro** il valore assoluto, mentre $g(x)$ è ciò con cui la confrontiamo: può essere un numero fisso o un'altra espressione in $x$.",
+    "Per definizione, il valore assoluto \"toglie il segno negativo\": $|f(x)| = f(x)$ se $f(x)\\geq 0$, oppure $|f(x)| = -f(x)$ se $f(x)<0$. Il metodo si basa esattamente su questa doppia definizione.",
+    "**Metodo (per casi):** si isola il valore assoluto, poi si distinguono due casi in base al segno di $f(x)$. **Caso 1** — se $f(x)\\geq 0$, il valore assoluto si toglie senza cambiare nulla: si risolve normalmente $f(x) \\gtrless g(x)$. **Caso 2** — se $f(x)<0$, il valore assoluto diventa $-f(x)$: si risolve $-f(x)\\gtrless g(x)$, che equivale a $f(x) \\lessgtr -g(x)$ **invertendo il verso della disequazione** (se $>$ diventa $<$, se $<$ diventa $>$; l'uguale resta uguale). Alla fine si mettono insieme i due casi.",
+    "**Attenzione:** ogni soluzione trovata in un caso è accettabile solo se **appartiene davvero all'intervallo di quel caso** (cioè alla condizione $f(x)\\geq 0$ o $f(x)<0$ imposta all'inizio) — altrimenti va scartata."
+  ],
+  "esempio": [
+    "Risolviamo $|3x+1|=x-2$.",
+    "**Caso 1 — $3x+1\\geq 0$**, cioè $x\\geq -\\dfrac{1}{3}$. In questo caso l'equazione diventa $3x+1=x-2$, da cui $2x=-3$ e $x=-\\dfrac{3}{2}$.",
+    "Controllo: $x=-\\dfrac{3}{2}$ appartiene all'intervallo del caso ($x\\geq -\\dfrac{1}{3}$)? No, $-\\dfrac{3}{2}$ è più piccolo di $-\\dfrac{1}{3}$. La soluzione **non va bene** e si scarta.",
+    "**Caso 2 — $3x+1<0$**, cioè $x<-\\dfrac{1}{3}$. Qui il valore assoluto diventa $-(3x+1)$, quindi l'equazione è $3x+1=2-x$ (equivalente a invertire il segno su entrambi i lati), da cui $4x=1$ e $x=\\dfrac{1}{4}$.",
+    "Controllo: $x=\\dfrac{1}{4}$ appartiene all'intervallo del caso ($x<-\\dfrac{1}{3}$)? No, $\\dfrac{1}{4}$ è positivo. Anche questa soluzione **non va bene** e si scarta.",
+    "Poiché entrambi i casi danno soluzioni che non rispettano il proprio intervallo, l'equazione è **impossibile**: non esiste nessun $x$ che la soddisfi.",
+    "**Verifica grafica:** disegnando $y=|3x+1|$ (una \"V\" con vertice in $\\left(-\\dfrac{1}{3},0\\right)$) e la retta $y=x-2$, si vede che la retta passa sempre sotto la V: le due curve non si incontrano mai, confermando che non ci sono soluzioni."
+  ],
+  "errore": [
+    "L'errore più frequente in questo argomento è **dimenticare di controllare che la soluzione trovata appartenga davvero all'intervallo del caso** in cui è stata calcolata: come nell'esempio, si può trovare un valore di $x$ matematicamente corretto per l'equazione ridotta, ma che va comunque scartato perché non rispetta la condizione iniziale ($f(x)\\geq 0$ o $f(x)<0$).",
+    "È utile impostare i due casi come un piccolo sistema (condizione + equazione), controllando sempre alla fine se la soluzione trovata soddisfa la condizione di partenza."
+  ],
+  "schema": "",
+  "collegamenti": [
+    "Riusa lo studio del segno visto nelle **equazioni e disequazioni razionali intere e fratte**, applicato questa volta alla condizione $f(x)\\geq 0$ oppure $f(x)<0$.",
+    "È strettamente simile alle **equazioni e disequazioni irrazionali**, dove invece di distinguere due casi si eleva al quadrato entrambi i membri, sempre controllando le condizioni sulle soluzioni trovate."
+  ]
+},
         {
           "id": "a-irrazionali",
           "title": "Equazioni e disequazioni irrazionali",
