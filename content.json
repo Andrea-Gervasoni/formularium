@@ -48,11 +48,12 @@
   "id": "a-razionali",
   "title": "Equazioni e disequazioni razionali intere e fratte (anche grado > 2)",
   "formula": [
-    "Una disequazione razionale fratta ha la forma $\\dfrac{P(x)}{Q(x)} \\gtrless 0$, cioè una frazione in cui compare la $x$ anche al denominatore.",
-    "Il denominatore non può mai essere zero: prima di tutto si impongono le **condizioni di esistenza**, cioè $Q(x)\\neq 0$.",
-    "Poi si studiano numeratore e denominatore **separatamente**, come se fossero due disequazioni indipendenti (con lo stesso metodo del segno visto per le disequazioni di grado qualsiasi), e si costruisce una tabella dei segni.",
-    "Infine si combinano i due segni riga per riga: dove numeratore e denominatore hanno lo **stesso segno**, la frazione è positiva; dove hanno **segno opposto**, la frazione è negativa. Il segno finale, insieme alle condizioni di esistenza, dà la soluzione."
-  ],
+  "Una disequazione razionale fratta ha la forma $\\dfrac{P(x)}{Q(x)} \\gtrless 0$, cioè una frazione in cui compare la $x$ anche al denominatore.",
+  "Il denominatore non può mai essere zero: prima di tutto si impongono le **condizioni di esistenza**, cioè $Q(x)\\neq 0$.",
+  "Poi si studiano numeratore e denominatore **separatamente**, come se fossero due disequazioni indipendenti (con lo stesso metodo del segno visto per le disequazioni di grado qualsiasi), e si costruisce una tabella dei segni.",
+  "**Convenzione:** indipendentemente da cosa chieda il problema, si studiano sempre $P(x)$ e $Q(x)$ ponendoli **maggiori di zero** ($P(x)>0$ e $Q(x)>0$), costruendo la tabella dei segni con questa unica convenzione. Solo **alla fine**, dopo aver combinato i segni, si sceglie dalla tabella il segno effettivamente richiesto dal problema (positivo, negativo, o con l'uguale).",
+  "Si combinano i due segni riga per riga: dove numeratore e denominatore hanno lo **stesso segno**, la frazione è positiva; dove hanno **segno opposto**, la frazione è negativa. Il segno finale richiesto, insieme alle condizioni di esistenza, dà la soluzione."
+],
   "esempio": [
     "Risolviamo $\\dfrac{x^3-x}{x-2}\\leq 0$.",
     "**Passo 1 — condizioni di esistenza.** Il denominatore non può annullarsi: $x-2\\neq 0 \\Rightarrow x\\neq 2$.",
