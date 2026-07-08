@@ -21,55 +21,54 @@
   "id": "a-diseq-2grado",
   "title": "Disequazioni di 2° grado con il modello della parabola",
   "formula": [
-    "Una disequazione di 2° grado si scrive $ax^2+bx+c \\gtrless 0$ con $a\\neq 0$: non è un problema puramente algebrico, ma chiede \"per quali $x$ il grafico della parabola sta sopra, sotto o sull'asse delle ascisse?\".",
-    "Forma canonica: $ax^2+bx+c \\gtrless 0$. Il coefficiente $a$ determina la **concavità** ($a>0$ verso l'alto, $a<0$ verso il basso); $b$ determina la posizione dell'asse di simmetria $x=-\\dfrac{b}{2a}$; $c$ è il punto in cui la parabola incontra l'asse delle ordinate.",
-    "Discriminante: $\\Delta = b^2-4ac$, con $x_{1,2}=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$. Misura quante volte la parabola interseca l'asse $y=0$: $\\Delta>0$ due intersezioni, $\\Delta=0$ una sola (tangente), $\\Delta<0$ nessuna.",
-    "Segno: se $\\Delta>0$, il segno è concorde ad $a$ per i valori **esterni** agli zeri ($x<x_1 \\lor x>x_2$), discorde per i valori **interni**. Se $\\Delta=0$, concorde ad $a$ sempre tranne che nello zero doppio. Se $\\Delta<0$, concorde ad $a$ per ogni $x\\in\\mathbb{R}$."
+    "Una disequazione di secondo grado ha la forma $ax^2+bx+c \\gtrless 0$, con $a\\neq 0$. Non è solo un calcolo: equivale a chiedersi **per quali valori di $x$ il grafico della parabola $y=ax^2+bx+c$ sta sopra, sotto o esattamente sull'asse delle $x$**.",
+    "Il segno di $a$ decide la concavità: verso l'alto se $a>0$, verso il basso se $a<0$. Il **discriminante** $\\Delta=b^2-4ac$ dice quante volte la parabola incontra l'asse $x$: $\\Delta>0$ due punti distinti $x_1<x_2$ (dati da $x_{1,2}=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$), $\\Delta=0$ un solo punto (la parabola è tangente all'asse), $\\Delta<0$ nessun punto (la parabola non tocca mai l'asse $x$).",
+    "Per leggere il segno basta disegnare la parabola: dove il disegno sta **sopra** l'asse $x$, l'espressione è positiva; dove sta **sotto**, è negativa. Se $\\Delta \\leq 0$ non ci sono zeri reali (o ce n'è uno solo), quindi la parabola ha lo stesso segno di $a$ su quasi tutta la retta reale."
   ],
   "esempio": [
     "Risolviamo $-x^2+4x-3 \\geq 0$.",
-    "Identifico i coefficienti dalla forma canonica: $a=-1$, $b=4$, $c=-3$.",
-    "Calcolo il discriminante: $\\Delta = b^2-4ac = 16-4(-1)(-3) = 16-12 = 4 > 0$: la parabola ha due zeri distinti.",
-    "Calcolo gli zeri: $x_{1,2}=\\dfrac{-4\\pm 2}{-2}$, cioè $x_1=1$ e $x_2=3$.",
-    "Determino la concavità ($a=-1<0$, verso il basso) e disegno la parabola: interseca l'asse $x$ in $(1,0)$ e $(3,0)$, e l'asse $y$ in $(0,-3)$.",
-    "Dal grafico leggo la soluzione: essendo $a<0$ e la disequazione $\\geq 0$, la parabola è positiva **tra** gli zeri: $1 \\leq x \\leq 3$."
+    "**Passo 1 — leggo i coefficienti.** Confrontando con la forma canonica: $a=-1$, $b=4$, $c=-3$.",
+    "**Passo 2 — calcolo il discriminante** per sapere quanti zeri ha la parabola: $\\Delta = b^2-4ac = 4^2-4(-1)(-3) = 16-12 = 4$. Poiché $\\Delta=4>0$, ci sono due zeri distinti.",
+    "**Passo 3 — trovo gli zeri** con la formula: $x_{1,2}=\\dfrac{-4\\pm\\sqrt{4}}{2(-1)}=\\dfrac{-4\\pm2}{-2}$, quindi $x_1=1$ e $x_2=3$.",
+    "**Passo 4 — disegno la parabola.** Siccome $a=-1<0$, la concavità è verso il basso: la parabola \"sorride verso il basso\", tocca l'asse $x$ in $(1,0)$ e $(3,0)$, e l'asse $y$ in $(0,-3)$.",
+    "**Passo 5 — leggo la soluzione dal disegno.** La disequazione chiede dove la parabola è $\\geq 0$, cioè dove il disegno sta sopra (o sull') l'asse $x$: guardando il grafico, questo succede **tra** i due zeri, non fuori. Soluzione: $1 \\leq x \\leq 3$."
   ],
   "errore": [
-    "Il rischio più frequente risiede nel risolvere in maniera sistematica senza controllare il segno di $a$: si potrebbe ignorare che $a \\gtrless 0$ cambia completamente la soluzione.",
-    "Conviene disegnare sempre il grafico della parabola, controllando sempre il segno di $a$ prima di leggere la soluzione."
+    "L'errore più comune è dare per scontato che la soluzione sia sempre \"fuori dagli zeri\" (come capita spesso quando $a>0$). Qui invece $a<0$: la parabola è capovolta, quindi il segno si inverte e la soluzione corretta è **tra** gli zeri, non fuori.",
+    "Per non sbagliare mai, conviene disegnare sempre la parabola (anche solo uno schizzo) e leggere il segno dal disegno, invece di applicare una regola a memoria senza controllare il segno di $a$."
   ],
   "schema": "",
   "collegamenti": [
-    "È il modello alla base dello studio del **segno di una funzione**.",
-    "È alla base delle **disequazioni razionali fratte**, dove si studia il segno di numeratore e denominatore separatamente.",
-    "La stessa parabola compare nel Tema C tra le **coniche**."
+    "Questo è il modello grafico che sta dietro allo **studio del segno di una funzione** in generale: si applica lo stesso ragionamento a qualsiasi espressione, non solo alle parabole.",
+    "È il primo passo delle **disequazioni razionali fratte**, dove si studia il segno del numeratore e del denominatore separatamente proprio con questo metodo.",
+    "La stessa curva, la parabola, viene ripresa nel Tema C tra le **coniche**, questa volta studiata come figura geometrica e non solo come grafico di segno."
   ]
 },
-        {
+       {
   "id": "a-razionali",
   "title": "Equazioni e disequazioni razionali intere e fratte (anche grado > 2)",
   "formula": [
-    "Una disequazione razionale fratta si scrive $\\dfrac{P(x)}{Q(x)} \\gtrless 0$.",
-    "Si studia $P(x)$ da solo (con il metodo delle disequazioni di grado qualunque), poi si studia $Q(x)$ da solo con lo stesso metodo — se $Q(x)=k$ costante non ci sono condizioni di esistenza, altrimenti la prima cosa da fare è porre $Q(x)\\neq 0$.",
-    "Si fondono le due tabelle di segno in una sola: dove numeratore e denominatore sono **concordi** il risultato è positivo, dove sono **discordi** è negativo. Convenzione: si studiano $P(x)$ e $Q(x)$ sempre maggiori di zero, poi si sceglie il segno finale richiesto dal problema."
+    "Una disequazione razionale fratta ha la forma $\\dfrac{P(x)}{Q(x)} \\gtrless 0$, cioè una frazione in cui compare la $x$ anche al denominatore.",
+    "Il denominatore non può mai essere zero: prima di tutto si impongono le **condizioni di esistenza**, cioè $Q(x)\\neq 0$.",
+    "Poi si studiano numeratore e denominatore **separatamente**, come se fossero due disequazioni indipendenti (con lo stesso metodo del segno visto per le disequazioni di grado qualsiasi), e si costruisce una tabella dei segni.",
+    "Infine si combinano i due segni riga per riga: dove numeratore e denominatore hanno lo **stesso segno**, la frazione è positiva; dove hanno **segno opposto**, la frazione è negativa. Il segno finale, insieme alle condizioni di esistenza, dà la soluzione."
   ],
   "esempio": [
     "Risolviamo $\\dfrac{x^3-x}{x-2}\\leq 0$.",
-    "Condizioni di esistenza: $x-2\\neq 0 \\Rightarrow x\\neq 2$.",
-    "Studio il numeratore, lo scompongo: $x^3-x = x(x^2-1) = x(x+1)(x-1) \\geq 0$.",
-    "Individuo gli zeri del numeratore: $x=0$, $x=1$, $x=-1$; studio singolarmente ogni fattore e compongo i segni.",
-    "Studio il denominatore: $x-2>0 \\Rightarrow x>2$.",
-    "Metto insieme i due grafici dei segni (numeratore e denominatore) e leggo dove sono concordi (positivo) o discordi (negativo).",
-    "Dato che il problema chiede $\\leq 0$, la soluzione è negativa: $-1\\leq x\\leq 0 \\;\\lor\\; 1\\leq x < 2$."
+    "**Passo 1 — condizioni di esistenza.** Il denominatore non può annullarsi: $x-2\\neq 0 \\Rightarrow x\\neq 2$.",
+    "**Passo 2 — scompongo il numeratore** per trovarne gli zeri più facilmente: $x^3-x = x(x^2-1) = x(x-1)(x+1)$. Studio quindi $x(x-1)(x+1) \\geq 0$: gli zeri sono $x=-1$, $x=0$, $x=1$.",
+    "**Passo 3 — studio il denominatore** da solo: $x-2>0 \\Rightarrow x>2$.",
+    "**Passo 4 — costruisco la tabella dei segni** mettendo numeratore e denominatore uno sopra l'altro sulla stessa retta, e leggo dove sono concordi (frazione positiva) o discordi (frazione negativa).",
+    "**Passo 5 — leggo la soluzione.** Poiché la disequazione chiede $\\leq 0$ (frazione negativa o nulla, ma il denominatore non può annullarsi), la soluzione è: $-1 \\leq x \\leq 0 \\;\\lor\\; 1 \\leq x < 2$."
   ],
   "errore": [
-    "L'errore più frequente è dimenticare di porre le condizioni di esistenza ($Q(x)\\neq 0$).",
-    "Seguendo correttamente tutti i passaggi (C.E., scomposizione del numeratore, tabella dei segni unificata) il margine di errore diminuisce notevolmente."
+    "L'errore più frequente in assoluto è **dimenticare le condizioni di esistenza**: se non si esclude $x=2$, si rischia di includere per sbagliato un valore che rende il denominatore nullo, cosa impossibile.",
+    "Seguendo con ordine tutti i passaggi — condizioni di esistenza, poi numeratore, poi denominatore, poi tabella combinata — il rischio di errore si riduce moltissimo."
   ],
   "schema": "",
   "collegamenti": [
-    "Riusa direttamente il modello delle **disequazioni di 2° grado con la parabola** per studiare numeratore e denominatore.",
-    "È alla base delle **equazioni e disequazioni con valori assoluti**, che si affrontano con lo stesso studio del segno per intervalli."
+    "Riusa direttamente il metodo delle **disequazioni di 2° grado con il modello della parabola** per studiare il segno di numeratore e denominatore.",
+    "È la base delle **equazioni e disequazioni con valori assoluti**, che si risolvono con lo stesso studio del segno per intervalli, con una tabella riassuntiva finale."
   ]
 },
         {
