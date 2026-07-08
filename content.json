@@ -18,36 +18,60 @@
       "title": "Equazioni, disequazioni e funzioni",
       "topics": [
         {
-          "id": "a-diseq-2grado",
-          "title": "Disequazioni di 2° grado con il modello della parabola",
-          "formula": [
-            "Una disequazione di 2° grado si scrive $ax^2+bx+c \\gtrless 0$ con $a\\neq 0$.",
-            "Si associa la parabola $y=ax^2+bx+c$ e si studia il **segno** in base al discriminante $\\Delta=b^2-4ac$ e alla concavità (segno di $a$).",
-            "$$\\Delta>0 \\Rightarrow \\text{due zeri } x_1<x_2 \\qquad \\Delta=0 \\Rightarrow \\text{uno zero doppio} \\qquad \\Delta<0 \\Rightarrow \\text{nessuno zero reale}$$"
-          ],
-          "esempio": [
-            "Risolviamo $x^2-5x+6>0$.",
-            "Calcolo il discriminante: $\\Delta = (-5)^2-4\\cdot 1\\cdot 6 = 25-24 = 1>0$, quindi due zeri reali.",
-            "Gli zeri sono $x_{1,2}=\\dfrac{5\\pm\\sqrt{1}}{2}$, cioè $x_1=2$ e $x_2=3$.",
-            "Poiché $a=1>0$ la parabola ha la concavità verso l'alto: è **positiva all'esterno** dell'intervallo degli zeri.",
-            "Soluzione: $x<2 \\;\\lor\\; x>3$."
-          ],
-          "errore": [
-            "L'errore più comune è invertire il verso: con $a>0$ la disequazione $>0$ è soddisfatta **all'esterno** degli zeri (valori esterni), non all'interno.",
-            "Si dimentica inoltre il caso $\\Delta<0$: se $a>0$ allora $ax^2+bx+c>0$ è vera per **ogni** $x\\in\\mathbb{R}$ (la parabola sta tutta sopra l'asse)."
-          ],
-          "schema": "",
-          "collegamenti": [
-            "È il modello visivo alla base dello studio del **segno di una funzione** quadratica.",
-            "Si riusa nelle **disequazioni razionali fratte** per studiare il segno di numeratore e denominatore.",
-            "La stessa parabola compare in Tema C tra le **coniche**."
-          ]
-        },
+  "id": "a-diseq-2grado",
+  "title": "Disequazioni di 2° grado con il modello della parabola",
+  "formula": [
+    "Una disequazione di 2° grado si scrive $ax^2+bx+c \\gtrless 0$ con $a\\neq 0$: non è un problema puramente algebrico, ma chiede \"per quali $x$ il grafico della parabola sta sopra, sotto o sull'asse delle ascisse?\".",
+    "Forma canonica: $ax^2+bx+c \\gtrless 0$. Il coefficiente $a$ determina la **concavità** ($a>0$ verso l'alto, $a<0$ verso il basso); $b$ determina la posizione dell'asse di simmetria $x=-\\dfrac{b}{2a}$; $c$ è il punto in cui la parabola incontra l'asse delle ordinate.",
+    "Discriminante: $\\Delta = b^2-4ac$, con $x_{1,2}=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$. Misura quante volte la parabola interseca l'asse $y=0$: $\\Delta>0$ due intersezioni, $\\Delta=0$ una sola (tangente), $\\Delta<0$ nessuna.",
+    "Segno: se $\\Delta>0$, il segno è concorde ad $a$ per i valori **esterni** agli zeri ($x<x_1 \\lor x>x_2$), discorde per i valori **interni**. Se $\\Delta=0$, concorde ad $a$ sempre tranne che nello zero doppio. Se $\\Delta<0$, concorde ad $a$ per ogni $x\\in\\mathbb{R}$."
+  ],
+  "esempio": [
+    "Risolviamo $-x^2+4x-3 \\geq 0$.",
+    "Identifico i coefficienti dalla forma canonica: $a=-1$, $b=4$, $c=-3$.",
+    "Calcolo il discriminante: $\\Delta = b^2-4ac = 16-4(-1)(-3) = 16-12 = 4 > 0$: la parabola ha due zeri distinti.",
+    "Calcolo gli zeri: $x_{1,2}=\\dfrac{-4\\pm 2}{-2}$, cioè $x_1=1$ e $x_2=3$.",
+    "Determino la concavità ($a=-1<0$, verso il basso) e disegno la parabola: interseca l'asse $x$ in $(1,0)$ e $(3,0)$, e l'asse $y$ in $(0,-3)$.",
+    "Dal grafico leggo la soluzione: essendo $a<0$ e la disequazione $\\geq 0$, la parabola è positiva **tra** gli zeri: $1 \\leq x \\leq 3$."
+  ],
+  "errore": [
+    "Il rischio più frequente risiede nel risolvere in maniera sistematica senza controllare il segno di $a$: si potrebbe ignorare che $a \\gtrless 0$ cambia completamente la soluzione.",
+    "Conviene disegnare sempre il grafico della parabola, controllando sempre il segno di $a$ prima di leggere la soluzione."
+  ],
+  "schema": "",
+  "collegamenti": [
+    "È il modello alla base dello studio del **segno di una funzione**.",
+    "È alla base delle **disequazioni razionali fratte**, dove si studia il segno di numeratore e denominatore separatamente.",
+    "La stessa parabola compare nel Tema C tra le **coniche**."
+  ]
+},
         {
-          "id": "a-razionali",
-          "title": "Equazioni e disequazioni razionali intere e fratte (anche grado > 2)",
-          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
-        },
+  "id": "a-razionali",
+  "title": "Equazioni e disequazioni razionali intere e fratte (anche grado > 2)",
+  "formula": [
+    "Una disequazione razionale fratta si scrive $\\dfrac{P(x)}{Q(x)} \\gtrless 0$.",
+    "Si studia $P(x)$ da solo (con il metodo delle disequazioni di grado qualunque), poi si studia $Q(x)$ da solo con lo stesso metodo — se $Q(x)=k$ costante non ci sono condizioni di esistenza, altrimenti la prima cosa da fare è porre $Q(x)\\neq 0$.",
+    "Si fondono le due tabelle di segno in una sola: dove numeratore e denominatore sono **concordi** il risultato è positivo, dove sono **discordi** è negativo. Convenzione: si studiano $P(x)$ e $Q(x)$ sempre maggiori di zero, poi si sceglie il segno finale richiesto dal problema."
+  ],
+  "esempio": [
+    "Risolviamo $\\dfrac{x^3-x}{x-2}\\leq 0$.",
+    "Condizioni di esistenza: $x-2\\neq 0 \\Rightarrow x\\neq 2$.",
+    "Studio il numeratore, lo scompongo: $x^3-x = x(x^2-1) = x(x+1)(x-1) \\geq 0$.",
+    "Individuo gli zeri del numeratore: $x=0$, $x=1$, $x=-1$; studio singolarmente ogni fattore e compongo i segni.",
+    "Studio il denominatore: $x-2>0 \\Rightarrow x>2$.",
+    "Metto insieme i due grafici dei segni (numeratore e denominatore) e leggo dove sono concordi (positivo) o discordi (negativo).",
+    "Dato che il problema chiede $\\leq 0$, la soluzione è negativa: $-1\\leq x\\leq 0 \\;\\lor\\; 1\\leq x < 2$."
+  ],
+  "errore": [
+    "L'errore più frequente è dimenticare di porre le condizioni di esistenza ($Q(x)\\neq 0$).",
+    "Seguendo correttamente tutti i passaggi (C.E., scomposizione del numeratore, tabella dei segni unificata) il margine di errore diminuisce notevolmente."
+  ],
+  "schema": "",
+  "collegamenti": [
+    "Riusa direttamente il modello delle **disequazioni di 2° grado con la parabola** per studiare numeratore e denominatore.",
+    "È alla base delle **equazioni e disequazioni con valori assoluti**, che si affrontano con lo stesso studio del segno per intervalli."
+  ]
+},
         {
           "id": "a-valori-assoluti",
           "title": "Equazioni e disequazioni con valori assoluti",
