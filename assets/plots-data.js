@@ -15,14 +15,17 @@ const PLOTS = {
   'a-diseq-2grado': { kind: 'parabola', params: { a: 1, b: -5, c: 6 }, shade: 'gt',
     note: ['Sposta a, b, c: in arancio le x che risolvono  a x²+bx+c > 0'] },
 
-  'a-razionali': { kind: 'function', exprs: [{ f: '(x*x - 1)/(x*x - 4)' }], vlines: [-2, 2], box: [-7, 7, 7, -7],
-    latex: 'y = \\dfrac{x^{2}-1}{x^{2}-4}',
-    note: ['Asintoti verticali in x = ±2 (denominatore nullo)'] },
+  'a-razionali': { kind: 'function', exprs: [{ f: '(x*x*x - x)/(x - k)' }], vlines: [2], box: [-4, 5, 4, -6],
+    sliders: { k: { min: -3, max: 4, value: 2, step: 0.5 } },
+    latex: 'y = \\dfrac{x^{3}-x}{x-k}',
+    points: [[-1, 0, 'zero'], [0, 0, 'zero'], [1, 0, 'zero']],
+    note: ['Sposta k: l’asintoto verticale segue il denominatore; gli zeri del numeratore restano fissi in −1, 0, 1'] },
 
-  'a-valori-assoluti': { kind: 'function', exprs: [{ f: 'abs(x*x - k)' }],
-    sliders: { k: { min: -2, max: 9, value: 4, step: 0.5 } }, box: [-6, 9, 6, -3],
-    latex: 'y = \\left|\\,x^{2} - k\\,\\right|',
-    ghost: 'x*x - k', note: ['In tratteggio la funzione interna; il valore assoluto ribalta sopra l’asse x'] },
+  'a-valori-assoluti': { kind: 'function', exprs: [{ f: 'abs(3*x + 1)' }, { f: 'x + k' }],
+    sliders: { k: { min: -6, max: 3, value: -2, step: 0.5 } }, box: [-5, 6, 5, -6],
+    latex: 'y = |3x+1| \\quad \\text{e} \\quad y = x + k',
+    points: [[-0.333, 0, 'vertice']],
+    note: ['Sposta k: la retta incontra la "V" solo se passa abbastanza in alto; se resta sotto il vertice, l’equazione è impossibile'] },
 
   'a-irrazionali': { kind: 'function', exprs: [{ f: 'sqrt(x + k)' }],
     sliders: { k: { min: -4, max: 6, value: 2, step: 0.5 } }, box: [-6, 8, 9, -3],
@@ -41,8 +44,8 @@ const PLOTS = {
     latex: 'f(x)=\\begin{cases}-x & x<0\\\\ x^{2} & 0\\le x\\le 2\\\\ x+2 & x>2\\end{cases}',
     note: ['f(x) = −x  (x<0);  x²  (0≤x≤2);  x+2  (x>2)'] },
 
-  'a-pari-dispari': { kind: 'function', exprs: [{ f: '0.4*x*x + cos(x)' }], mirror: 'even', box: [-7, 7, 7, -3],
-    latex: 'y = 0.4\\,x^{2} + \\cos x',
+  'a-pari-dispari': { kind: 'function', exprs: [{ f: 'x*x - cos(x)' }], mirror: 'even', box: [-7, 7, 7, -3],
+    latex: 'y = x^{2} - \\cos x',
     note: ['Funzione PARI: trascina P, il punto P′ in −x ha la stessa altezza'] },
 
   'a-composta-inversa': { kind: 'function', exprs: [{ f: 'pow(2, x)' }], inverse: true, box: [-6, 6, 6, -6],
