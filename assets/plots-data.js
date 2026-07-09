@@ -27,10 +27,11 @@ const PLOTS = {
     points: [[-0.333, 0, 'vertice']],
     note: ['Sposta k: la retta incontra la "V" solo se passa abbastanza in alto; se resta sotto il vertice, l’equazione è impossibile'] },
 
-  'a-irrazionali': { kind: 'function', exprs: [{ f: 'sqrt(x + k)' }],
-    sliders: { k: { min: -4, max: 6, value: 2, step: 0.5 } }, box: [-6, 8, 9, -3],
-    latex: 'y = \\sqrt{\\,x + k\\,}',
-    note: ['Dominio: x + k ≥ 0  (la radice esiste solo a destra di −k)'] },
+  'a-irrazionali': { kind: 'function', exprs: [{ f: 'sqrt(2*x + 3)' }, { f: 'x + k' }],
+    sliders: { k: { min: -4, max: 4, value: 0, step: 0.5 } }, box: [-4, 6, 6, -4],
+    latex: 'y = \\sqrt{2x+3} \\quad \\text{e} \\quad y = x + k',
+    points: [[-1.5, 0, 'C.E.']],
+    note: ['Dominio da x = −3/2 in poi; sposta k per vedere dove la radice supera la retta'] },
 
   'a-caratteristiche-funzioni': { kind: 'function', exprs: [{ f: '(x*x - 4)/(x - 3)' }], vlines: [3], box: [-7, 10, 9, -10],
     latex: 'y = \\dfrac{x^{2}-4}{x-3}',
