@@ -33,13 +33,13 @@ const PLOTS = {
     points: [[-1.5, 0, 'C.E.']],
     note: ['Dominio da x = −3/2 in poi; sposta k per vedere dove la radice supera la retta'] },
 
-  'a-caratteristiche-funzioni': { kind: 'function', exprs: [{ f: '(x*x - 4)/(x - 3)' }], vlines: [3], box: [-7, 10, 9, -10],
-    latex: 'y = \\dfrac{x^{2}-4}{x-3}',
-    points: [[-2, 0, 'zero'], [2, 0, 'zero']], note: ['Zeri in x = ±2 · asintoto verticale x = 3'] },
+  'a-caratteristiche-funzioni': { kind: 'function', exprs: [{ f: 'sqrt(x - 1)/(x - 3)' }], vlines: [3], box: [-2, 7, 6, -6],
+    latex: 'y = \\dfrac{\\sqrt{x-1}}{x-3}',
+    points: [[1, 0, 'zero']], note: ['Dominio da x = 1 in poi (escluso x = 3) · negativa tra 1 e 3, positiva oltre 3'] },
 
-  'a-proprieta-funzioni': { kind: 'function', exprs: [{ f: 'x*x*x - 3*x' }], hline: true, box: [-4, 6, 4, -6],
-    latex: 'y = x^{3} - 3x',
-    note: ['Muovi la retta y = k: se taglia il grafico in >1 punto, f non è iniettiva'] },
+  'a-proprieta-funzioni': { kind: 'function', exprs: [{ f: '2*x + 3' }], hline: true, box: [-4, 6, 4, -6],
+    latex: 'y = 2x + 3',
+    note: ['Muovi la retta y = k: taglia il grafico in un solo punto per ogni k → f è iniettiva e suriettiva'] },
 
   'a-tratti': { kind: 'function', exprs: [{ f: 'x < 0 ? -x : (x <= 2 ? x*x : x + 2)' }], box: [-5, 8, 6, -3],
     latex: 'f(x)=\\begin{cases}-x & x<0\\\\ x^{2} & 0\\le x\\le 2\\\\ x+2 & x>2\\end{cases}',
