@@ -131,15 +131,62 @@
   ]
 },
         {
-          "id": "a-caratteristiche-funzioni",
-          "title": "Caratteristiche delle funzioni: dominio, codominio, zeri, segno e grafico",
-          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
-        },
+  "id": "a-caratteristiche-funzioni",
+  "title": "Caratteristiche delle funzioni: dominio, codominio, zeri, segno e grafico",
+  "formula": [
+    "Una funzione è una regola che associa a **ogni** $x$ dell'insieme di partenza $A$ **esattamente un** valore $f(x)$ nell'insieme di arrivo $B$ (il codominio).",
+    "Il **dominio** $D\\subseteq A$ è l'insieme dei valori di $x$ per cui $f(x)$ si può calcolare senza errori: divisioni per zero, radici di indice pari con radicando negativo, e simili. Con una funzione definita a tratti, il dominio si trova unendo le condizioni di esistenza di ogni pezzo che la compone.",
+    "Il **codominio** $B$ è l'insieme dichiarato all'inizio (spesso $\\mathbb{R}$) dove la funzione potrebbe arrivare; non cambia qualunque cosa faccia $f$. L'**immagine** di $f$, invece, è il sottoinsieme di $B$ formato dai valori che $f$ raggiunge davvero — spesso più piccolo del codominio dichiarato.",
+    "Gli **zeri** sono le soluzioni di $f(x)=0$, cercate dentro il dominio $D$. Il **segno** divide il dominio in $f(x)>0$ (positivo) e $f(x)<0$ (negativo), con lo stesso metodo dello studio del segno visto nelle disequazioni."
+  ],
+  "esempio": [
+    "Studiamo $f(x)=\\dfrac{\\sqrt{x-1}}{x-3}$.",
+    "**Condizione di esistenza della radice:** il radicando non può essere negativo: $x-1\\geq 0 \\Rightarrow x\\geq 1$.",
+    "**Condizione di esistenza del denominatore:** non può annullarsi: $x-3\\neq 0 \\Rightarrow x\\neq 3$.",
+    "**Dominio:** intersecando le due condizioni, $D=[1,3)\\cup(3,+\\infty)$.",
+    "**Zeri:** $f(x)=0$ solo se il numeratore è zero: $\\sqrt{x-1}=0 \\Rightarrow x=1$, valore che appartiene a $D$. Quindi $x=1$ è l'unico zero.",
+    "**Segno del numeratore:** $\\sqrt{x-1}$ è sempre $\\geq 0$ dove esiste, ed è zero solo in $x=1$: quindi non è mai negativo.",
+    "**Segno del denominatore:** $x-3>0$ per $x>3$, negativo per $x<3$ (con $x\\neq3$ escluso dal dominio).",
+    "**Segno di $f$:** essendo il numeratore sempre $\\geq 0$, il segno della frazione è determinato dal solo denominatore: $f(x)<0$ per $x\\in(1,3)$, $f(x)>0$ per $x\\in(3,+\\infty)$, e $f(1)=0$."
+  ],
+  "errore": [
+    "L'errore più comune è confondere codominio e immagine: dichiarare $f:\\mathbb{R}\\to\\mathbb{R}$ non significa che $f$ raggiunga davvero **tutti** i numeri reali. Il codominio è solo l'insieme di arrivo dichiarato; l'immagine è ciò che la funzione produce realmente, e va calcolata studiando la funzione, non assunta a priori.",
+    "Un secondo errore frequente è dimenticare qualche condizione di esistenza (radice **e** denominatore, non solo una delle due) quando si calcola il dominio."
+  ],
+  "schema": "",
+  "collegamenti": [
+    "Il dominio si calcola con le stesse tecniche viste nelle **equazioni e disequazioni razionali e irrazionali**.",
+    "Il segno di $f$ si studia esattamente come nelle **disequazioni**: stessa tabella dei segni, stesso metodo per intervalli.",
+    "È il punto di partenza per capire se una funzione è **iniettiva, suriettiva o biiettiva**."
+  ]
+},
         {
-          "id": "a-proprieta-funzioni",
-          "title": "Proprietà delle funzioni: iniettiva, suriettiva, biiettiva",
-          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
-        },
+  "id": "a-proprieta-funzioni",
+  "title": "Proprietà delle funzioni: iniettiva, suriettiva, biiettiva",
+  "formula": [
+    "Una funzione $f$ è **iniettiva** se a input diversi corrispondono sempre output diversi: $\\forall x_1,x_2\\in D,\\; x_1\\neq x_2 \\Rightarrow f(x_1)\\neq f(x_2)$. Graficamente: ogni retta orizzontale incontra il grafico **al massimo una volta**.",
+    "Una funzione $f:A\\to B$ è **suriettiva** se ogni elemento del codominio $B$ dichiarato ha almeno una controimmagine, cioè $f$ raggiunge davvero ogni valore di $B$. Questa proprietà dipende molto da **quale codominio si dichiara**: la stessa formula può essere suriettiva o meno a seconda di come si sceglie $B$.",
+    "Una funzione è **biiettiva** se è sia iniettiva che suriettiva. La conseguenza è che esiste una **funzione inversa** $f^{-1}$, che manda ogni $y$ del codominio esattamente nell'$x$ di partenza corrispondente."
+  ],
+  "esempio": [
+    "Studiamo $f:\\mathbb{R}\\to\\mathbb{R}$, $f(x)=2x+3$.",
+    "**Iniettività — ipotesi.** Assumo $f(x_1)=f(x_2)$, cioè $2x_1+3=2x_2+3$.",
+    "**Iniettività — semplifico.** Sottraggo 3 e divido per 2 su entrambi i lati: ottengo $x_1=x_2$.",
+    "**Iniettività — conclusione.** L'implicazione vale sempre, quindi $f(x_1)=f(x_2)$ costringe $x_1=x_2$: $f$ è iniettiva.",
+    "**Suriettività — ipotesi.** Prendo un generico $y\\in B=\\mathbb{R}$ e cerco $x\\in D$ tale che $f(x)=y$, cioè $2x+3=y$.",
+    "**Suriettività — risolvo per $x$.** $x=\\dfrac{y-3}{2}$: per **ogni** $y$ reale esiste un $x$ reale che lo produce, quindi $f$ è suriettiva.",
+    "**Conclusione.** $f$ è iniettiva **e** suriettiva, quindi è biiettiva: esiste l'inversa $f^{-1}(y)=\\dfrac{y-3}{2}$."
+  ],
+  "errore": [
+    "L'errore più insidioso è dire che $f(x)=x^2$ \"è suriettiva\" o \"non lo è\" **senza specificare il codominio**: iniettività e suriettività non dipendono dalla sola formula, ma dalla coppia dominio-codominio scelta. Ad esempio $f(x)=x^2$ non è iniettiva su $\\mathbb{R}$ (perché $f(-2)=f(2)$), ma **diventa** iniettiva se si restringe il dominio a $x\\geq 0$.",
+    "Va sempre dichiarato esplicitamente su quale dominio e quale codominio si sta ragionando, prima di rispondere."
+  ],
+  "schema": "",
+  "collegamenti": [
+    "Si appoggia direttamente su **dominio e codominio**, visti nelle caratteristiche delle funzioni.",
+    "È il prerequisito per **funzione composta e funzione inversa**: solo una funzione biiettiva ammette una vera funzione inversa su tutto il codominio."
+  ]
+},
         {
           "id": "a-tratti",
           "title": "Funzioni definite a tratti",
