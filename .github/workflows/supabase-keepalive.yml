@@ -20,3 +20,4 @@ jobs:
           curl -sS -o /dev/null -w "HTTP %{http_code}\n" \
             "https://iwwycwyrfubvjbtlkyby.supabase.co/rest/v1/" \
             -H "apikey: sb_publishable_ELjDcNqI3guYt7FvoXhoxg_Ie9SiWfR"
+
