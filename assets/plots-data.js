@@ -41,17 +41,18 @@ const PLOTS = {
     latex: 'y = 2x + 3',
     note: ['Muovi la retta y = k: taglia il grafico in un solo punto per ogni k → f è iniettiva e suriettiva'] },
 
-  'a-tratti': { kind: 'function', exprs: [{ f: 'x < 0 ? -x : (x <= 2 ? x*x : x + 2)' }], box: [-5, 8, 6, -3],
-    latex: 'f(x)=\\begin{cases}-x & x<0\\\\ x^{2} & 0\\le x\\le 2\\\\ x+2 & x>2\\end{cases}',
-    note: ['f(x) = −x  (x<0);  x²  (0≤x≤2);  x+2  (x>2)'] },
+  'a-tratti': { kind: 'function', exprs: [{ f: 'x < 0 ? x + 1 : x*x - 1' }], box: [-4, 5, 4, -4],
+    latex: 'f(x)=\\begin{cases}x+1 & x<0\\\\ x^{2}-1 & x\\ge 0\\end{cases}',
+    points: [[0, 1, 'vuoto'], [0, -1, 'pieno'], [-1, 0, 'zero'], [1, 0, 'zero']],
+    note: ['A x = 0 c’è un salto: il pezzo x<0 si avvicina a 1 (cerchio vuoto), il pezzo x≥0 vale davvero −1 (punto pieno)'] },
 
   'a-pari-dispari': { kind: 'function', exprs: [{ f: 'x*x - cos(x)' }], mirror: 'even', box: [-7, 7, 7, -3],
     latex: 'y = x^{2} - \\cos x',
     note: ['Funzione PARI: trascina P, il punto P′ in −x ha la stessa altezza'] },
 
-  'a-composta-inversa': { kind: 'function', exprs: [{ f: 'pow(2, x)' }], inverse: true, box: [-6, 6, 6, -6],
-    latex: 'y = 2^{x} \\;\\longrightarrow\\; y = \\log_{2} x',
-    note: ['In blu la funzione inversa: riflessione di f rispetto alla retta y = x'] },
+  'a-composta-inversa': { kind: 'function', exprs: [{ f: 'x*x*x' }], inverse: true, box: [-3, 3.5, 3, -3.5],
+    latex: 'y = x^{3} \\;\\longrightarrow\\; y = \\sqrt[3]{x}',
+    note: ['In blu la funzione inversa ∛x: riflessione di y = x³ rispetto alla retta y = x'] },
 
   /* ---------------- TEMA B — retta e trasformazioni ---------------- */
   'b-retta': { kind: 'line', drag: true, box: [-7, 7, 7, -7],
