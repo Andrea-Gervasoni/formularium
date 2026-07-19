@@ -18,179 +18,80 @@
       "title": "Equazioni, disequazioni e funzioni",
       "topics": [
         {
-  "id": "a-diseq-2grado",
-  "title": "Disequazioni di 2° grado con il modello della parabola",
-  "formula": [
-    "Una disequazione di secondo grado ha la forma $ax^2+bx+c \\gtrless 0$, con $a\\neq 0$. Non è solo un calcolo: equivale a chiedersi **per quali valori di $x$ il grafico della parabola $y=ax^2+bx+c$ sta sopra, sotto o esattamente sull'asse delle $x$**.",
-    "Il segno di $a$ decide la concavità: verso l'alto se $a>0$, verso il basso se $a<0$. Il **discriminante** $\\Delta=b^2-4ac$ dice quante volte la parabola incontra l'asse $x$: $\\Delta>0$ due punti distinti $x_1<x_2$ (dati da $x_{1,2}=\\dfrac{-b\\pm\\sqrt{\\Delta}}{2a}$), $\\Delta=0$ un solo punto (la parabola è tangente all'asse), $\\Delta<0$ nessun punto (la parabola non tocca mai l'asse $x$).",
-    "Per leggere il segno basta disegnare la parabola: dove il disegno sta **sopra** l'asse $x$, l'espressione è positiva; dove sta **sotto**, è negativa. Se $\\Delta \\leq 0$ non ci sono zeri reali (o ce n'è uno solo), quindi la parabola ha lo stesso segno di $a$ su quasi tutta la retta reale."
-  ],
-  "esempio": [
-    "Risolviamo $-x^2+4x-3 \\geq 0$.",
-    "**Passo 1 — leggo i coefficienti.** Confrontando con la forma canonica: $a=-1$, $b=4$, $c=-3$.",
-    "**Passo 2 — calcolo il discriminante** per sapere quanti zeri ha la parabola: $\\Delta = b^2-4ac = 4^2-4(-1)(-3) = 16-12 = 4$. Poiché $\\Delta=4>0$, ci sono due zeri distinti.",
-    "**Passo 3 — trovo gli zeri** con la formula: $x_{1,2}=\\dfrac{-4\\pm\\sqrt{4}}{2(-1)}=\\dfrac{-4\\pm2}{-2}$, quindi $x_1=1$ e $x_2=3$.",
-    "**Passo 4 — disegno la parabola.** Siccome $a=-1<0$, la concavità è verso il basso: la parabola \"sorride verso il basso\", tocca l'asse $x$ in $(1,0)$ e $(3,0)$, e l'asse $y$ in $(0,-3)$.",
-    "**Passo 5 — leggo la soluzione dal disegno.** La disequazione chiede dove la parabola è $\\geq 0$, cioè dove il disegno sta sopra (o sull') l'asse $x$: guardando il grafico, questo succede **tra** i due zeri, non fuori. Soluzione: $1 \\leq x \\leq 3$."
-  ],
-  "errore": [
-    "L'errore più comune è dare per scontato che la soluzione sia sempre \"fuori dagli zeri\" (come capita spesso quando $a>0$). Qui invece $a<0$: la parabola è capovolta, quindi il segno si inverte e la soluzione corretta è **tra** gli zeri, non fuori.",
-    "Per non sbagliare mai, conviene disegnare sempre la parabola (anche solo uno schizzo) e leggere il segno dal disegno, invece di applicare una regola a memoria senza controllare il segno di $a$."
-  ],
-  "schema": "",
-  "collegamenti": [
-    "Questo è il modello grafico che sta dietro allo **studio del segno di una funzione** in generale: si applica lo stesso ragionamento a qualsiasi espressione, non solo alle parabole.",
-    "È il primo passo delle **disequazioni razionali fratte**, dove si studia il segno del numeratore e del denominatore separatamente proprio con questo metodo.",
-    "La stessa curva, la parabola, viene ripresa nel Tema C tra le **coniche**, questa volta studiata come figura geometrica e non solo come grafico di segno."
-  ]
-},
-       {
-  "id": "a-razionali",
-  "title": "Equazioni e disequazioni razionali intere e fratte (anche grado > 2)",
-  "formula": [
-  "Una disequazione razionale fratta ha la forma $\\dfrac{P(x)}{Q(x)} \\gtrless 0$, cioè una frazione in cui compare la $x$ anche al denominatore.",
-  "Il denominatore non può mai essere zero: prima di tutto si impongono le **condizioni di esistenza**, cioè $Q(x)\\neq 0$.",
-  "Poi si studiano numeratore e denominatore **separatamente**, come se fossero due disequazioni indipendenti (con lo stesso metodo del segno visto per le disequazioni di grado qualsiasi), e si costruisce una tabella dei segni.",
-  "**Convenzione:** indipendentemente da cosa chieda il problema, si studiano sempre $P(x)$ e $Q(x)$ ponendoli **maggiori di zero** ($P(x)>0$ e $Q(x)>0$), costruendo la tabella dei segni con questa unica convenzione. Solo **alla fine**, dopo aver combinato i segni, si sceglie dalla tabella il segno effettivamente richiesto dal problema (positivo, negativo, o con l'uguale).",
-  "Si combinano i due segni riga per riga: dove numeratore e denominatore hanno lo **stesso segno**, la frazione è positiva; dove hanno **segno opposto**, la frazione è negativa. Il segno finale richiesto, insieme alle condizioni di esistenza, dà la soluzione."
-],
-  "esempio": [
-    "Risolviamo $\\dfrac{x^3-x}{x-2}\\leq 0$.",
-    "**Passo 1 — condizioni di esistenza.** Il denominatore non può annullarsi: $x-2\\neq 0 \\Rightarrow x\\neq 2$.",
-    "**Passo 2 — scompongo il numeratore** per trovarne gli zeri più facilmente: $x^3-x = x(x^2-1) = x(x-1)(x+1)$. Studio quindi $x(x-1)(x+1) \\geq 0$: gli zeri sono $x=-1$, $x=0$, $x=1$.",
-    "**Passo 3 — studio il denominatore** da solo: $x-2>0 \\Rightarrow x>2$.",
-    "**Passo 4 — costruisco la tabella dei segni** mettendo numeratore e denominatore uno sopra l'altro sulla stessa retta, e leggo dove sono concordi (frazione positiva) o discordi (frazione negativa).",
-    "**Passo 5 — leggo la soluzione.** Poiché la disequazione chiede $\\leq 0$ (frazione negativa o nulla, ma il denominatore non può annullarsi), la soluzione è: $-1 \\leq x \\leq 0 \\;\\lor\\; 1 \\leq x < 2$."
-  ],
-  "errore": [
-    "L'errore più frequente in assoluto è **dimenticare le condizioni di esistenza**: se non si esclude $x=2$, si rischia di includere per sbagliato un valore che rende il denominatore nullo, cosa impossibile.",
-    "Seguendo con ordine tutti i passaggi — condizioni di esistenza, poi numeratore, poi denominatore, poi tabella combinata — il rischio di errore si riduce moltissimo."
-  ],
-  "schema": "",
-  "collegamenti": [
-    "Riusa direttamente il metodo delle **disequazioni di 2° grado con il modello della parabola** per studiare il segno di numeratore e denominatore.",
-    "È la base delle **equazioni e disequazioni con valori assoluti**, che si risolvono con lo stesso studio del segno per intervalli, con una tabella riassuntiva finale."
-  ]
-},
+          "id": "a-diseq-2grado",
+          "title": "Disequazioni di 2° grado con il modello della parabola",
+          "formula": [
+            "Una disequazione di 2° grado si scrive $ax^2+bx+c \\gtrless 0$ con $a\\neq 0$.",
+            "Si associa la parabola $y=ax^2+bx+c$ e si studia il **segno** in base al discriminante $\\Delta=b^2-4ac$ e alla concavità (segno di $a$).",
+            "$$\\Delta>0 \\Rightarrow \\text{due zeri } x_1<x_2 \\qquad \\Delta=0 \\Rightarrow \\text{uno zero doppio} \\qquad \\Delta<0 \\Rightarrow \\text{nessuno zero reale}$$"
+          ],
+          "esempio": [
+            "Risolviamo $x^2-5x+6>0$.",
+            "Calcolo il discriminante: $\\Delta = (-5)^2-4\\cdot 1\\cdot 6 = 25-24 = 1>0$, quindi due zeri reali.",
+            "Gli zeri sono $x_{1,2}=\\dfrac{5\\pm\\sqrt{1}}{2}$, cioè $x_1=2$ e $x_2=3$.",
+            "Poiché $a=1>0$ la parabola ha la concavità verso l'alto: è **positiva all'esterno** dell'intervallo degli zeri.",
+            "Soluzione: $x<2 \\;\\lor\\; x>3$."
+          ],
+          "errore": [
+            "L'errore più comune è invertire il verso: con $a>0$ la disequazione $>0$ è soddisfatta **all'esterno** degli zeri (valori esterni), non all'interno.",
+            "Si dimentica inoltre il caso $\\Delta<0$: se $a>0$ allora $ax^2+bx+c>0$ è vera per **ogni** $x\\in\\mathbb{R}$ (la parabola sta tutta sopra l'asse)."
+          ],
+          "schema": "",
+          "collegamenti": [
+            "È il modello visivo alla base dello studio del **segno di una funzione** quadratica.",
+            "Si riusa nelle **disequazioni razionali fratte** per studiare il segno di numeratore e denominatore.",
+            "La stessa parabola compare in Tema C tra le **coniche**."
+          ]
+        },
         {
-  "id": "a-valori-assoluti",
-  "title": "Equazioni e disequazioni con valori assoluti",
-  "formula": [
-    "Un'equazione o disequazione con valore assoluto ha la forma $|f(x)| \\gtrless g(x)$ (o $=$). $f(x)$ è l'espressione **dentro** il valore assoluto, mentre $g(x)$ è ciò con cui la confrontiamo: può essere un numero fisso o un'altra espressione in $x$.",
-    "Per definizione, il valore assoluto \"toglie il segno negativo\": $|f(x)| = f(x)$ se $f(x)\\geq 0$, oppure $|f(x)| = -f(x)$ se $f(x)<0$. Il metodo si basa esattamente su questa doppia definizione.",
-    "**Metodo (per casi):** si isola il valore assoluto, poi si distinguono due casi in base al segno di $f(x)$. **Caso 1** — se $f(x)\\geq 0$, il valore assoluto si toglie senza cambiare nulla: si risolve normalmente $f(x) \\gtrless g(x)$. **Caso 2** — se $f(x)<0$, il valore assoluto diventa $-f(x)$: si risolve $-f(x)\\gtrless g(x)$, che equivale a $f(x) \\lessgtr -g(x)$ **invertendo il verso della disequazione** (se $>$ diventa $<$, se $<$ diventa $>$; l'uguale resta uguale). Alla fine si mettono insieme i due casi.",
-    "**Attenzione:** ogni soluzione trovata in un caso è accettabile solo se **appartiene davvero all'intervallo di quel caso** (cioè alla condizione $f(x)\\geq 0$ o $f(x)<0$ imposta all'inizio) — altrimenti va scartata."
-  ],
-  "esempio": [
-    "Risolviamo $|3x+1|=x-2$.",
-    "**Caso 1 — $3x+1\\geq 0$**, cioè $x\\geq -\\dfrac{1}{3}$. In questo caso l'equazione diventa $3x+1=x-2$, da cui $2x=-3$ e $x=-\\dfrac{3}{2}$.",
-    "Controllo: $x=-\\dfrac{3}{2}$ appartiene all'intervallo del caso ($x\\geq -\\dfrac{1}{3}$)? No, $-\\dfrac{3}{2}$ è più piccolo di $-\\dfrac{1}{3}$. La soluzione **non va bene** e si scarta.",
-    "**Caso 2 — $3x+1<0$**, cioè $x<-\\dfrac{1}{3}$. Qui il valore assoluto diventa $-(3x+1)$, quindi l'equazione è $3x+1=2-x$ (equivalente a invertire il segno su entrambi i lati), da cui $4x=1$ e $x=\\dfrac{1}{4}$.",
-    "Controllo: $x=\\dfrac{1}{4}$ appartiene all'intervallo del caso ($x<-\\dfrac{1}{3}$)? No, $\\dfrac{1}{4}$ è positivo. Anche questa soluzione **non va bene** e si scarta.",
-    "Poiché entrambi i casi danno soluzioni che non rispettano il proprio intervallo, l'equazione è **impossibile**: non esiste nessun $x$ che la soddisfi.",
-    "**Verifica grafica:** disegnando $y=|3x+1|$ (una \"V\" con vertice in $\\left(-\\dfrac{1}{3},0\\right)$) e la retta $y=x-2$, si vede che la retta passa sempre sotto la V: le due curve non si incontrano mai, confermando che non ci sono soluzioni."
-  ],
-  "errore": [
-    "L'errore più frequente in questo argomento è **dimenticare di controllare che la soluzione trovata appartenga davvero all'intervallo del caso** in cui è stata calcolata: come nell'esempio, si può trovare un valore di $x$ matematicamente corretto per l'equazione ridotta, ma che va comunque scartato perché non rispetta la condizione iniziale ($f(x)\\geq 0$ o $f(x)<0$).",
-    "È utile impostare i due casi come un piccolo sistema (condizione + equazione), controllando sempre alla fine se la soluzione trovata soddisfa la condizione di partenza."
-  ],
-  "schema": "",
-  "collegamenti": [
-    "Riusa lo studio del segno visto nelle **equazioni e disequazioni razionali intere e fratte**, applicato questa volta alla condizione $f(x)\\geq 0$ oppure $f(x)<0$.",
-    "È strettamente simile alle **equazioni e disequazioni irrazionali**, dove invece di distinguere due casi si eleva al quadrato entrambi i membri, sempre controllando le condizioni sulle soluzioni trovate."
-  ]
-},
+          "id": "a-razionali",
+          "title": "Equazioni e disequazioni razionali intere e fratte (anche grado > 2)",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
         {
-  "id": "a-irrazionali",
-  "title": "Equazioni e disequazioni irrazionali",
-  "formula": [
-    "Un'equazione o disequazione irrazionale ha una $x$ **dentro una radice**: $\\sqrt[n]{f(x)} \\gtrless g(x)$, dove $f(x)$ è il **radicando** (l'espressione sotto radice) e $g(x)$ è il termine di confronto. Se l'indice $n$ non è scritto, si intende $n=2$ (radice quadrata).",
-    "**Condizioni di esistenza:** se l'indice è **pari**, il radicando non può essere negativo, quindi va sempre imposto $f(x)\\geq 0$. Se l'indice è **dispari**, la radice esiste per ogni valore, quindi non serve nessuna condizione.",
-    "**Equazione $\\sqrt{f(x)}=g(x)$:** conviene impostare un sistema con tre condizioni: il radicando non negativo ($f(x)\\geq 0$), il termine di confronto non negativo ($g(x)\\geq 0$, perché una radice quadrata non può mai dare un risultato negativo), ed elevando al quadrato entrambi i membri, $f(x)=g(x)^2$.",
-    "**Disequazione $\\sqrt{f(x)} < g(x)$:** un solo sistema è sufficiente, con tre condizioni: $f(x)\\geq 0$, $g(x)\\geq 0$ (un numero negativo non può mai essere maggiore di una radice, quindi se $g(x)<0$ la disequazione non ha soluzione) e, elevando al quadrato, $f(x) < g(x)^2$.",
-    "**Disequazione $\\sqrt{f(x)} \\geq g(x)$:** qui invece bisogna unire (con un \"oppure\", $\\lor$) **due sistemi distinti**, perché la disequazione è comunque vera ogni volta che il radicando esiste ma $g(x)$ è negativo. **Sistema 1:** $f(x)\\geq 0$ e $g(x)<0$ (la radice, se esiste, è sempre $\\geq$ di un numero negativo). **Sistema 2:** $f(x)\\geq 0$, $g(x)\\geq 0$ e, elevando al quadrato, $f(x)\\geq g(x)^2$. Le soluzioni dei due sistemi si uniscono, non si intersecano."
-  ],
-  "esempio": [
-    "Risolviamo $\\sqrt{2x+3} > x$.",
-    "**Passo 1 — condizioni di esistenza.** Il radicando non può essere negativo: $2x+3\\geq 0 \\Rightarrow x\\geq -\\dfrac{3}{2}$.",
-    "**Passo 2 — distinguo due casi in base al segno di $g(x)=x$**, perché una radice (sempre $\\geq 0$) è automaticamente maggiore di qualsiasi numero negativo.",
-    "**Caso A — $g(x)<0$, cioè $x<0$.** In questo caso la disequazione è vera per definizione (la radice non è mai negativa), basta restare dentro le condizioni di esistenza: intersecando $x\\geq -\\frac32$ con $x<0$ ottengo la soluzione parziale $-\\dfrac{3}{2}\\leq x<0$.",
-    "**Caso B — $g(x)\\geq 0$, cioè $x\\geq 0$.** Qui posso elevare al quadrato in sicurezza: $2x+3 > x^2$, cioè $x^2-2x-3<0$, che scomposto è $(x-3)(x+1)<0$. Questa disequazione di secondo grado ha soluzione (con il modello della parabola) $-1<x<3$.",
-    "Intersecando con la condizione del caso B ($x\\geq 0$): $0\\leq x<3$.",
-    "**Passo 3 — unisco i due casi** (non si intersecano, si sommano): $\\left[-\\dfrac{3}{2},0\\right) \\cup [0,3) = \\left[-\\dfrac{3}{2}, 3\\right)$.",
-    "Soluzione finale: $-\\dfrac{3}{2}\\leq x<3$."
-  ],
-  "errore": [
-    "L'errore più insidioso è **dimenticare la condizione $g(x)\\geq 0$** nel caso $\\sqrt{f(x)}<g(x)$ (o il caso analogo nell'equazione). Non è un errore che si nota subito: il calcolo prosegue tranquillamente ed è facile arrivare a un risultato che sembra corretto, ma in realtà contiene un pezzo di soluzione in più, perché non si è escluso il caso in cui il confronto con un numero negativo renda la disequazione falsa a priori.",
-    "Nel caso $\\sqrt{f(x)} \\geq g(x)$, l'errore opposto è altrettanto comune: elevare subito al quadrato senza prima separare i due casi in base al segno di $g(x)$."
-  ],
-  "schema": "",
-  "collegamenti": [
-    "Riusa direttamente il modello della **parabola** per risolvere la disequazione di secondo grado che emerge dopo aver elevato al quadrato.",
-    "È concettualmente vicino alle **equazioni e disequazioni con valori assoluti**: in entrambi i casi si distinguono più scenari (casi) e si accettano solo le soluzioni coerenti con le condizioni di ciascun caso."
-  ]
-},
+          "id": "a-valori-assoluti",
+          "title": "Equazioni e disequazioni con valori assoluti",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
         {
-  "id": "a-caratteristiche-funzioni",
-  "title": "Caratteristiche delle funzioni: dominio, codominio, zeri, segno e grafico",
-  "formula": [
-    "Una funzione è una regola che associa a **ogni** $x$ dell'insieme di partenza $A$ **esattamente un** valore $f(x)$ nell'insieme di arrivo $B$ (il codominio).",
-    "Il **dominio** $D\\subseteq A$ è l'insieme dei valori di $x$ per cui $f(x)$ si può calcolare senza errori: divisioni per zero, radici di indice pari con radicando negativo, e simili. Con una funzione definita a tratti, il dominio si trova unendo le condizioni di esistenza di ogni pezzo che la compone.",
-    "Il **codominio** $B$ è l'insieme dichiarato all'inizio (spesso $\\mathbb{R}$) dove la funzione potrebbe arrivare; non cambia qualunque cosa faccia $f$. L'**immagine** di $f$, invece, è il sottoinsieme di $B$ formato dai valori che $f$ raggiunge davvero — spesso più piccolo del codominio dichiarato.",
-    "Gli **zeri** sono le soluzioni di $f(x)=0$, cercate dentro il dominio $D$. Il **segno** divide il dominio in $f(x)>0$ (positivo) e $f(x)<0$ (negativo), con lo stesso metodo dello studio del segno visto nelle disequazioni."
-  ],
-  "esempio": [
-    "Studiamo $f(x)=\\dfrac{\\sqrt{x-1}}{x-3}$.",
-    "**Condizione di esistenza della radice:** il radicando non può essere negativo: $x-1\\geq 0 \\Rightarrow x\\geq 1$.",
-    "**Condizione di esistenza del denominatore:** non può annullarsi: $x-3\\neq 0 \\Rightarrow x\\neq 3$.",
-    "**Dominio:** intersecando le due condizioni, $D=[1,3)\\cup(3,+\\infty)$.",
-    "**Zeri:** $f(x)=0$ solo se il numeratore è zero: $\\sqrt{x-1}=0 \\Rightarrow x=1$, valore che appartiene a $D$. Quindi $x=1$ è l'unico zero.",
-    "**Segno del numeratore:** $\\sqrt{x-1}$ è sempre $\\geq 0$ dove esiste, ed è zero solo in $x=1$: quindi non è mai negativo.",
-    "**Segno del denominatore:** $x-3>0$ per $x>3$, negativo per $x<3$ (con $x\\neq3$ escluso dal dominio).",
-    "**Segno di $f$:** essendo il numeratore sempre $\\geq 0$, il segno della frazione è determinato dal solo denominatore: $f(x)<0$ per $x\\in(1,3)$, $f(x)>0$ per $x\\in(3,+\\infty)$, e $f(1)=0$."
-  ],
-  "errore": [
-    "L'errore più comune è confondere codominio e immagine: dichiarare $f:\\mathbb{R}\\to\\mathbb{R}$ non significa che $f$ raggiunga davvero **tutti** i numeri reali. Il codominio è solo l'insieme di arrivo dichiarato; l'immagine è ciò che la funzione produce realmente, e va calcolata studiando la funzione, non assunta a priori.",
-    "Un secondo errore frequente è dimenticare qualche condizione di esistenza (radice **e** denominatore, non solo una delle due) quando si calcola il dominio."
-  ],
-  "schema": "",
-  "collegamenti": [
-    "Il dominio si calcola con le stesse tecniche viste nelle **equazioni e disequazioni razionali e irrazionali**.",
-    "Il segno di $f$ si studia esattamente come nelle **disequazioni**: stessa tabella dei segni, stesso metodo per intervalli.",
-    "È il punto di partenza per capire se una funzione è **iniettiva, suriettiva o biiettiva**."
-  ]
-},
+          "id": "a-irrazionali",
+          "title": "Equazioni e disequazioni irrazionali",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
         {
-  "id": "a-proprieta-funzioni",
-  "title": "Proprietà delle funzioni: iniettiva, suriettiva, biiettiva",
-  "formula": [
-    "Una funzione $f$ è **iniettiva** se a input diversi corrispondono sempre output diversi: $\\forall x_1,x_2\\in D,\\; x_1\\neq x_2 \\Rightarrow f(x_1)\\neq f(x_2)$. Graficamente: ogni retta orizzontale incontra il grafico **al massimo una volta**.",
-    "Una funzione $f:A\\to B$ è **suriettiva** se ogni elemento del codominio $B$ dichiarato ha almeno una controimmagine, cioè $f$ raggiunge davvero ogni valore di $B$. Questa proprietà dipende molto da **quale codominio si dichiara**: la stessa formula può essere suriettiva o meno a seconda di come si sceglie $B$.",
-    "Una funzione è **biiettiva** se è sia iniettiva che suriettiva. La conseguenza è che esiste una **funzione inversa** $f^{-1}$, che manda ogni $y$ del codominio esattamente nell'$x$ di partenza corrispondente."
-  ],
-  "esempio": [
-    "Studiamo $f:\\mathbb{R}\\to\\mathbb{R}$, $f(x)=2x+3$.",
-    "**Iniettività — ipotesi.** Assumo $f(x_1)=f(x_2)$, cioè $2x_1+3=2x_2+3$.",
-    "**Iniettività — semplifico.** Sottraggo 3 e divido per 2 su entrambi i lati: ottengo $x_1=x_2$.",
-    "**Iniettività — conclusione.** L'implicazione vale sempre, quindi $f(x_1)=f(x_2)$ costringe $x_1=x_2$: $f$ è iniettiva.",
-    "**Suriettività — ipotesi.** Prendo un generico $y\\in B=\\mathbb{R}$ e cerco $x\\in D$ tale che $f(x)=y$, cioè $2x+3=y$.",
-    "**Suriettività — risolvo per $x$.** $x=\\dfrac{y-3}{2}$: per **ogni** $y$ reale esiste un $x$ reale che lo produce, quindi $f$ è suriettiva.",
-    "**Conclusione.** $f$ è iniettiva **e** suriettiva, quindi è biiettiva: esiste l'inversa $f^{-1}(y)=\\dfrac{y-3}{2}$."
-  ],
-  "errore": [
-    "L'errore più insidioso è dire che $f(x)=x^2$ \"è suriettiva\" o \"non lo è\" **senza specificare il codominio**: iniettività e suriettività non dipendono dalla sola formula, ma dalla coppia dominio-codominio scelta. Ad esempio $f(x)=x^2$ non è iniettiva su $\\mathbb{R}$ (perché $f(-2)=f(2)$), ma **diventa** iniettiva se si restringe il dominio a $x\\geq 0$.",
-    "Va sempre dichiarato esplicitamente su quale dominio e quale codominio si sta ragionando, prima di rispondere."
-  ],
-  "schema": "",
-  "collegamenti": [
-    "Si appoggia direttamente su **dominio e codominio**, visti nelle caratteristiche delle funzioni.",
-    "È il prerequisito per **funzione composta e funzione inversa**: solo una funzione biiettiva ammette una vera funzione inversa su tutto il codominio."
-  ]
-},
+          "id": "a-caratteristiche-funzioni",
+          "title": "Caratteristiche delle funzioni: dominio, codominio, zeri, segno e grafico",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
+        {
+          "id": "a-proprieta-funzioni",
+          "title": "Proprietà delle funzioni: iniettiva, suriettiva, biiettiva",
+          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+        },
         {
           "id": "a-tratti",
           "title": "Funzioni definite a tratti",
-          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+          "formula": [
+            "Una funzione **definita a tratti** è formata da più espressioni diverse, ciascuna valida solo su un intervallo del dominio: $f(x)=\\begin{cases}\\text{espressione 1} & \\text{se } x\\in I_1\\\\ \\text{espressione 2} & \\text{se } x\\in I_2\\\\ \\;\\vdots & \\end{cases}$",
+            "**Come si legge:** per ogni $x$, prima si individua in quale intervallo cade, poi si applica **solo** la formula di quel pezzo — non si mescolano mai le espressioni.",
+            "**Regola sugli intervalli:** gli intervalli non devono mai sovrapporsi in modo contraddittorio. Se due pezzi si toccano in uno stesso punto (es. $x=0$), il segno di uguale ($\\leq$, $\\geq$) va messo in **uno solo** dei due, altrimenti quel punto avrebbe due valori diversi.",
+            "**Come si risolve un'equazione o disequazione su tutto il dominio:** si risolve ogni pezzo per conto proprio, intersecando il risultato con l'intervallo di quel pezzo; poi si **uniscono** tutte le soluzioni parziali trovate."
+          ],
+          "esempio": [
+            "Risolviamo $f(x)\\geq 0$ per $f(x)=\\begin{cases}x+1 & x<0\\\\ x^{2}-1 & x\\geq 0\\end{cases}$.",
+            "**Passo 1 — studio il primo pezzo, solo dove è valido ($x<0$).** Risolvo $x+1\\geq 0 \\Rightarrow x\\geq -1$. Intersecando con la condizione $x<0$: $-1\\leq x<0$.",
+            "**Passo 2 — studio il secondo pezzo, solo dove è valido ($x\\geq 0$).** Risolvo $x^2-1\\geq 0 \\Rightarrow (x-1)(x+1)\\geq 0 \\Rightarrow x\\leq -1 \\;\\lor\\; x\\geq 1$. Intersecando con la condizione $x\\geq 0$: resta solo $x\\geq 1$.",
+            "**Passo 3 — unisco le due soluzioni parziali.** $\\left[-1,0\\right) \\cup \\left[1,+\\infty\\right)$."
+          ],
+          "errore": [
+            "L'errore più grave è **dimenticare di intersecare** la soluzione di un pezzo con l'intervallo in cui quel pezzo vale: risolvere $x^2-1\\geq0$ da sola darebbe anche $x\\leq -1$, ma quel risultato non è ammissibile nel secondo pezzo, dove vale solo $x\\geq 0$.",
+            "Da non confondere con l'errore di dominio: se due intervalli si sovrappongono senza un criterio chiaro (es. entrambi con $x=0$ incluso), la funzione non è nemmeno ben definita in quel punto."
+          ],
+          "schema": "",
+          "collegamenti": [
+            "Ogni pezzo si risolve riusando gli strumenti già visti: **disequazioni di 2° grado** e **razionali fratte**, applicati indipendentemente su ciascun intervallo.",
+            "È lo schema tipico con cui si costruiscono grafici \"su misura\", utile anche in **funzioni composte** quando un pezzo dipende da un'altra funzione."
+          ]
         },
         {
           "id": "a-pari-dispari",
@@ -220,7 +121,36 @@
         {
           "id": "a-composta-inversa",
           "title": "Funzione composta e funzione inversa",
-          "formula": [], "esempio": [], "errore": [], "schema": "", "collegamenti": []
+          "formula": [
+            "La **funzione composta** $(f\\circ g)(x)=f(g(x))$ si legge \"$f$ composto $g$\" e si esegue partendo da quella più vicina a $x$, cioè $g$: prima si calcola $g(x)$, poi si applica $f$ al risultato.",
+            "**Dominio di componibilità:** la composizione ha senso in un punto $x$ solo se $x\\in D_g$ **e** $g(x)\\in D_f$ — se $g$ produce un valore che $f$ non accetta, la composizione in quel punto non esiste.",
+            "**L'ordine conta:** in generale $(f\\circ g)(x) \\neq (g\\circ f)(x)$: la composizione **non è commutativa**.",
+            "**Invertibilità:** $f$ ammette la propria inversa $f^{-1}$ **se e solo se** $f$ è biiettiva (iniettiva e suriettiva insieme).",
+            "**Come si trova e si verifica $f^{-1}$:** si pone $y=f(x)$ e si isola $x$ in funzione di $y$ — quella è $f^{-1}$. La verifica è **obbligatoria da entrambi i lati**: $(f^{-1}\\circ f)(x)=x \\;\\forall x\\in A$ e $(f\\circ f^{-1})(y)=y \\;\\forall y\\in B$. Un solo controllo può dare un risultato che sembra vero ma è sbagliato: servono entrambi.",
+            "Il grafico di $f^{-1}$ è il **riflesso del grafico di $f$** rispetto alla retta $y=x$."
+          ],
+          "esempio": [
+            "**Esempio 1 — l'ordine conta.** Date $f(x)=2x+3$ e $g(x)=x+1$, calcoliamo $(f\\circ g)(x)$ e $(g\\circ f)(x)$.",
+            "$(f\\circ g)(x)=f(g(x))$: sostituisco $g(x)=x+1$ al posto della $x$ dentro $f$: $f(x+1)=2(x+1)+3=2x+5$.",
+            "$(g\\circ f)(x)=g(f(x))$: sostituisco $f(x)=2x+3$ al posto della $x$ dentro $g$: $g(2x+3)=(2x+3)+1=2x+4$.",
+            "Confronto: $2x+5 \\neq 2x+4$ — le due composizioni sono funzioni **diverse**: l'ordine conta.",
+            "**Esempio 2 — trovare e verificare l'inversa di $y=x^3$.**",
+            "**Passo 1.** Pongo $y=f(x)=x^3$.",
+            "**Passo 2 — isolo $x$.** $x=\\sqrt[3]{y}$: candidata inversa $f^{-1}(y)=\\sqrt[3]{y}$.",
+            "**Passo 3 — verifica sinistra.** Applico $f$ e poi $f^{-1}$ a $x$: $f^{-1}(f(x))=\\sqrt[3]{x^3}=x$. ✓ Bersaglio raggiunto.",
+            "**Passo 4 — verifica destra.** Applico $f^{-1}$ e poi $f$ a $y$: $f\\!\\left(f^{-1}(y)\\right)=\\left(\\sqrt[3]{y}\\right)^3=y$. ✓ Bersaglio raggiunto.",
+            "Entrambi i controlli sono passati: $f^{-1}(y)=\\sqrt[3]{y}$ confermata."
+          ],
+          "errore": [
+            "Nelle funzioni composte, l'errore più diffuso è considerarle **commutative**, cioè assumere $(f\\circ g)(x)=(g\\circ f)(x)$: come mostra l'esempio, in generale è falso.",
+            "Nelle funzioni inverse, l'errore è **dimenticarsi di fare entrambe le verifiche**: controllare solo $f^{-1}(f(x))=x$ (o solo l'altra) non basta — servono sempre tutte e due."
+          ],
+          "schema": "",
+          "collegamenti": [
+            "Il prerequisito per l'invertibilità è la **biiettività**, vista in \"Proprietà delle funzioni: iniettiva, suriettiva, biiettiva\".",
+            "Il riflesso rispetto alla retta $y=x$ è una delle **simmetrie nel piano cartesiano** del Tema B.",
+            "Il dominio di componibilità riusa il concetto di **dominio** visto in \"Caratteristiche delle funzioni\"."
+          ]
         }
       ]
     },
